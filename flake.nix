@@ -43,10 +43,10 @@
       filesIn = dirPath: 
         let
           dirContents = builtins.readDir dirPath;
-        in 
-          (builtins.filter (name: dirContents.${name} == "regular") (builtins.attrNames dirContents));
-    in
-    {
+
+      overlays.default = final: prev:
+        (import ./pkgs inputs) final prev;
+
       # Output all modules in ./modules to flake. Modules should be in
       # individual subdirectories and contain a default.nix file
       nixosModules = (map

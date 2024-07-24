@@ -1,10 +1,10 @@
-{ lib, pkgs, stable, flake-self, config, home-manager, ... }:
+{ lib, pkgs, stable, self, flake-self, config, home-manager, ... }:
 with lib;
 let cfg = config.siren.common;
 in
 {
   options.siren.common.enable = mkEnableOption "enable common config";
-  
+
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       neovim
@@ -21,6 +21,8 @@ in
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
+
+    nixpkgs.overlays = [ self.overlays.default ];
 
     nix.settings = {
       substituters = [ "https://cache.lounge.rocks/nix-cache" ];
