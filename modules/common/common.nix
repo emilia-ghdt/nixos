@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, self, flake-self, config, home-manager, ... }:
+{ lib, pkgs, stable, flake-self, config, home-manager, ... }:
 with lib;
 let cfg = config.siren.common;
 in
@@ -22,7 +22,7 @@ in
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.overlays = [ self.overlays.default ];
+    nixpkgs.overlays = [ flake-self.overlays.default ];
 
     nix.settings = {
       substituters = [ "https://cache.lounge.rocks/nix-cache" ];
