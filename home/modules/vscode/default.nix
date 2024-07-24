@@ -15,7 +15,7 @@ in
 
     programs.vscode = {
       enable = true;
-      package = pkgs.vscodium;
+      package = pkgs.vscodium.fhs;
       # package = pkgs.vscode.fhsWithPackages (ps: with ps; [ rustup zlib openssl.dev pkg-config ]);
      
       enableExtensionUpdateCheck = false;
@@ -98,12 +98,10 @@ in
       extensions = with pkgs.vscode-extensions; [
         davidanson.vscode-markdownlint
         github.copilot
-        github.github-vscode-theme
         github.vscode-github-actions
         github.vscode-pull-request-github
         james-yu.latex-workshop
         jnoortheen.nix-ide
-        mkhl.direnv
         ms-azuretools.vscode-docker
         ms-python.debugpy
         ms-python.python
