@@ -60,10 +60,17 @@
 
       # Output all modules in ./modules to flake. Modules should be in
       # individual subdirectories and contain a default.nix file
-      nixosModules = (map
-        (name: import (./modules + "/${name}"))
-        (builtins.attrNames (builtins.readDir ./modules))
-      ) ++ [ (import ./home) ];
+      nixosModules = builtins.listToAttrs
+        (map
+          (x: {
+            name = x;
+            value = import (./modules + "/${x}");
+          })
+          (builtins.attrNames (builtins.readDir ./modules))) // {
+        home-manager = { config, pkgs, lib, ... }: {
+          imports = [ ./home ];
+        };
+      };
 
       # Each subdirectory in ./hosts is a host. Add them all to
       # nixosConfiguratons. Host configurations need a file called
@@ -77,7 +84,7 @@
             # accessed with flake-self.inputs.X, but adding them individually
             # allows to only pass what is needed to each module.
             specialArgs = { flake-self = self; } // inputs;
-            modules = self.nixosModules ++ [
+            modules = builtins.attrValues self.nixosModules ++ [
               (./hosts + "/${name}/configuration.nix")
               sops-nix.nixosModules.sops
             ];
