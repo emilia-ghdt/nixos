@@ -114,13 +114,18 @@ in
         valentjn.vscode-ltex
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
-            name = "vscode-rhai";
-            publisher = "rhaiscript";
-            version = "0.6.7";
-            sha256 = "sha256-KLfHPt+Emad7kHIyrqpjJRC28G3FEwKsAr8A5sYAhy0=";
-          }
+          name = "vscode-rhai";
+          publisher = "rhaiscript";
+          version = "0.6.7";
+          sha256 = "sha256-KLfHPt+Emad7kHIyrqpjJRC28G3FEwKsAr8A5sYAhy0=";
+        }
+        {
+          name = "probe-rs-debugger";
+          publisher = "probe-rs";
+          version = "0.24.2";
+          sha256 = "sha256-1Gs5D5was/ZOZQrVD3/UiRm5bb12vGIl60AZV2EnazQ=";
+        }
       ];
-
     };
   };
 }

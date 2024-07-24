@@ -17,7 +17,8 @@
     xserver.enable = true;
     xserver.xkb.enable = true;
     udev.enable = true;
-    # TODO move from system to home
+    openshut.enable = true;
+    openshut.keyboardInputPath = /dev/input/event8;
     home-assistant.enable = true;
   };
 

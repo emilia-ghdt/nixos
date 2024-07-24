@@ -16,6 +16,7 @@ in
       du-dust
       ripgrep
       nix-ld
+      busybox
     ] ++ [ flake-self.inputs.nix-autobahn ];
 
     # Allow unfree packages

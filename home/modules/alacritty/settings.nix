@@ -10,8 +10,10 @@
   scrolling = {
     # Max history
     history = 100000;
+  };
+  font = {
     # Roboto Mono
-    normal = { family = "Roboto Mono"; style = "Regular"; };
+    normal = { family = "RobotoMono Nerd Font"; style = "Regular"; };
     bold = { style = "Bold"; }; # Default
     italic = { style = "Italic"; }; # Default
     bold_italic = { style = "Bold Italic"; }; # Default

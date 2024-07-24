@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, config, home-manager, ... }:
+{ lib, pkgs, config, ... }:
 with lib;
 let cfg = config.siren.laptop;
 in

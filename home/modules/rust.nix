@@ -16,5 +16,7 @@ in
         extensions = [ "rust-src" ];
       })
     ];
+
+    programs.vscode.userSettings."rust-analyzer.check.allTargets" = false;
   };
 }
