@@ -12,6 +12,7 @@
 
 
   home.packages = with pkgs; [
+    element-desktop
     calc
     kicad
     firefox

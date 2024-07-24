@@ -14,6 +14,7 @@
 
   # Modules
   link.convertible.enable = true;
+  link.direnv.enable = true;
 
   # Laptop
   # Using gnome so disable power profiles daemon
