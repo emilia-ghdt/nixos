@@ -50,6 +50,8 @@
   networking.networkmanager.enable = true;
   networking.hostName = "cassiopeia";
 
+  services.netbird.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
