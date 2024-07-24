@@ -1,0 +1,59 @@
+{
+  "labels": {
+    "backend": "local",
+    "platform": "linux/amd64"
+  },
+  "steps": [
+    {
+      "commands": [
+        "nix flake show"
+      ],
+      "image": "bash",
+      "name": "Nix flake show"
+    },
+    {
+      "commands": [
+        "attic login lounge-rocks https://cache.lounge.rocks $ATTIC_KEY --set-default"
+      ],
+      "image": "bash",
+      "name": "Setup Attic",
+      "secrets": [
+        "attic_key"
+      ]
+    },
+    {
+      "commands": [
+        "nix build --print-out-paths '.#nixosConfigurations.cassiopeia.config.system.build.toplevel' -o 'result-cassiopeia'"
+      ],
+      "image": "bash",
+      "name": "Build cassiopeia"
+    },
+    {
+      "commands": [
+        "nix path-info --closure-size -h $(readlink -f 'result-cassiopeia')"
+      ],
+      "image": "bash",
+      "name": "Show cassiopeia info"
+    },
+    {
+      "commands": [
+        "attic push lounge-rocks:nix-cache 'result-cassiopeia'"
+      ],
+      "image": "bash",
+      "name": "Push cassiopeia to Attic"
+    }
+  ],
+  "when": [
+    {
+      "event": "manual"
+    },
+    {
+      "branch": "main",
+      "event": "push"
+    },
+    {
+      "branch": "update_flake_lock_action",
+      "event": "push"
+    }
+  ]
+}

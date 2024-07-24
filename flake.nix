@@ -40,9 +40,20 @@
       stable = import nixpkgs-stable { inherit system; };
 
       # Helper function to get regular files in a directory
-      filesIn = dirPath: 
+      filesIn = dirPath:
         let
           dirContents = builtins.readDir dirPath;
+        in
+        (builtins.filter (name: dirContents.${name} == "regular") (builtins.attrNames dirContents));
+
+      # provide a nixpkgs for a specific architecture
+      supportedSystems = [ "aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      nixpkgsFor = forAllSystems (system: import nixpkgs { inherit system; overlays = [ self.overlays.default ]; });
+    in
+    {
+      formatter = forAllSystems
+        (system: nixpkgsFor.${system}.nixpkgs-fmt);
 
       overlays.default = final: prev:
         (import ./pkgs inputs) final prev;
@@ -87,6 +98,13 @@
       #   (filesIn ./home/profiles)
       # );
 
-      formatter = { ${system} = nixpkgs.${system}.nixpkgs-fmt; };
+      # by using forAllSystems, we generate a package for each supported system
+      packages = forAllSystems (system: {
+        woodpecker-pipeline = nixpkgsFor.${system}.callPackage ./pkgs/woodpecker-pipeline {
+          inputs = inputs;
+          flake-self = self;
+        };
+      });
+
     };
 }
