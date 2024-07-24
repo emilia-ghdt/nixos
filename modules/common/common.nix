@@ -22,6 +22,11 @@ in
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
+    nix.settings = {
+      substituters = [ "https://cache.lounge.rocks/nix-cache" ];
+      trusted-public-keys = [ "nix-cache:4FILs79Adxn/798F8qk2PC1U8HaTlaPqptwNJrXNA1g=" ];
+    };
+
     # Enable nix command and flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
