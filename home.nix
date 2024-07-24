@@ -13,8 +13,7 @@
   home.packages = with pkgs; [
     firefox
     thunderbird
-    vscode
-    vscode-extensions.rust-lang.rust-analyzer
+    vscodium
     neovim
     git
     cmake
@@ -39,6 +38,9 @@
     mozwire
     wireguard-tools
     netbird-ui
+    python3
+    cargo
+    rustc
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
