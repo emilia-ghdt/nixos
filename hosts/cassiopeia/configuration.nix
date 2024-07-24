@@ -12,6 +12,9 @@
       inputs.home-manager.nixosModules.default
     ];
 
+  # Modules
+  link.convertible.enable = true;
+
   # Laptop
   # Using gnome so disable power profiles daemon
   services.power-profiles-daemon.enable = false;
@@ -105,6 +108,8 @@
     #media-session.enable = true;
   };
 
+  hardware.openrazer.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -112,7 +117,7 @@
   users.users.emilia = {
     isNormalUser = true;
     description = "Emilia Groß-Hardt";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
   };
 
   home-manager = {
@@ -128,15 +133,15 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    pkgs.wget
-    pkgs.via
-    pkgs.vial
-    pkgs.qmk
-    pkgs.gnomeExtensions.window-is-ready-remover
-    pkgs.iio-sensor-proxy
-    stable.bat
+  environment.systemPackages = with pkgs; [
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    via
+    vial
+    qmk
+    gnomeExtensions.window-is-ready-remover
+    bat
+    openrazer-daemon
   ];
 
   services.udev.packages = with pkgs; [

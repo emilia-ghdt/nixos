@@ -22,24 +22,33 @@
       pkgs = import nixpkgs { inherit system; };
       stable = import nixpkgs-stable { inherit system; };
     in
-    {    
+    {
+      # Output all modules in ./modules to flake. Modules should be in
+      # individual subdirectories and contain a default.nix file
+      nixosModules = builtins.listToAttrs (map
+        (x: {
+          name = x;
+          #specialArgs = { flake-self = self; } // inputs;
+          value = import (./modules + "/${x}");
+        })
+        (builtins.attrNames (builtins.readDir ./modules)));
       nixosConfigurations.cassiopeia = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; inherit stable; };
-        modules = [ 
+        modules = builtins.attrValues self.nixosModules ++ [ 
           ./hosts/cassiopeia/configuration.nix
           inputs.home-manager.nixosModules.default
         ];
       };
 
-      nixosConfiguration.orion = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.orion = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; inherit stable; };
-        modules = [
+        modules = builtins.attrValues self.nixosModules ++ [
           ./hosts/orion/configuration.nix
           inputs.home-manager.nixosModules.default
         ];
       };
       
-formatter = system: nixpkgs.${system}.nixpkgs-fmt;
+      formatter = { ${system} = nixpkgs.${system}.nixpkgs-fmt;};
   
     };
 }
