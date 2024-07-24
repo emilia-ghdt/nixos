@@ -48,6 +48,10 @@
     clippy
     go
     gdb
+    artem
+    signal-desktop
+    darktable
+    screen-message
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
