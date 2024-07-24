@@ -13,7 +13,8 @@
   home.packages = with pkgs; [
     firefox
     thunderbird
-    vscodium
+    vscode
+    vscode-extensions.rust-lang.rust-analyzer
     neovim
     git
     cmake
