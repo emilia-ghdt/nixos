@@ -108,8 +108,6 @@
     #media-session.enable = true;
   };
 
-  hardware.openrazer.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -117,7 +115,7 @@
   users.users.emilia = {
     isNormalUser = true;
     description = "Emilia Groß-Hardt";
-    extraGroups = [ "networkmanager" "wheel" "openrazer" ];
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   home-manager = {
@@ -141,7 +139,6 @@
     qmk
     gnomeExtensions.window-is-ready-remover
     bat
-    openrazer-daemon
   ];
 
   services.udev.packages = with pkgs; [

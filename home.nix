@@ -12,7 +12,6 @@
 
 
   home.packages = with pkgs; [
-    polychromatic
     calc
     kicad
     firefox
