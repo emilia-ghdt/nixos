@@ -12,6 +12,7 @@
 
 
   home.packages = with pkgs; [
+    calc
     kicad
     firefox
     thunderbird
