@@ -41,6 +41,9 @@
     python3
     cargo
     rustc
+    gcc
+    rustfmt
+    clippy
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
