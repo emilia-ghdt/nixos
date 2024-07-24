@@ -31,6 +31,7 @@
     libreoffice
     zap
     mozillavpn
+    xournalpp
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
