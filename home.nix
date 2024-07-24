@@ -28,6 +28,8 @@
     tree
     du-dust
     ripgrep
+    libreoffice
+    zap
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
