@@ -12,7 +12,6 @@
 
 
   home.packages = with pkgs; [
-    cura
     kicad
     firefox
     thunderbird
