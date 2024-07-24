@@ -30,7 +30,6 @@
     ripgrep
     libreoffice
     zap
-    mozillavpn
     xournalpp
     teamviewer
     parsec-bin
