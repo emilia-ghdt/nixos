@@ -6,8 +6,8 @@ in
   options.siren.openshut = {
     enable = mkEnableOption "enable open shut morse";
     keyboardInputPath = mkOption {
-      type = types.path;
-      example = /dev/input/event3;
+      type = types.str;
+      example = "/dev/input/event3";
       description = "use evemu describe to find";
     };
   };
@@ -16,6 +16,7 @@ in
     environment.systemPackages = with pkgs; [
       evemu
       acpid
+      busybox
     ];
 
     environment.etc = {
@@ -23,11 +24,11 @@ in
         source = pkgs.writeText "morse_code_acpi.sh" ''
           #!${pkgs.bash}/bin/bash
 
-          ${pkgs.grep}/bin/grep -q close /proc/acpi/button/lid/*/state
+          ${pkgs.busybox}/bin/grep -q close /proc/acpi/button/lid/*/state
           if [ $? = 0 ]; then
               /etc/acpi/morse_code_close.sh & disown
           fi
-          ${pkgs.grep}/bin/grep -q open /proc/acpi/button/lid/*/state
+          ${pkgs.busybox}/bin/grep -q open /proc/acpi/button/lid/*/state
           if [ $? = 0 ]; then
               /etc/acpi/morse_code_open.sh & disown
           fi
@@ -134,7 +135,7 @@ in
                   IFS='=' read key val < <(egrep -z "$var" /proc/$pid/environ)
 
                   printf -v "$key" %s "$val"
-                  [[ ${!key} ]] && export "$key"
+                  [[ ''${!key} ]] && export "$key"
               done
           }
           import_environment XAUTHORITY USER DISPLAY
@@ -162,15 +163,15 @@ in
           fi
 
           if [[ "''${morse_letters[$sequence]}" == [A-Z] ]]; then
-              ${pkgs.evemu}/bin/evemu-event /dev/input/event3 --type EV_KEY --code KEY_LEFTSHIFT --value 1 --sync
+              ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code KEY_LEFTSHIFT --value 1 --sync
               ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_''${morse_letters[$sequence]}" --value 1 --sync
               ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_''${morse_letters[$sequence]}" --value 0 --sync
-              ${pkgs.evemu}/bin/evemu-event /dev/input/event3 --type EV_KEY --code KEY_LEFTSHIFT --value 0 --sync
+              ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code KEY_LEFTSHIFT --value 0 --sync
           elif [[ "''${morse_letters[$sequence]}" =~ [A-Z0-9] ]]; then
               ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_''${morse_letters[$sequence]}" --value 1 --sync
               ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_''${morse_letters[$sequence]}" --value 0 --sync
           else
-              ${pkgs.evemu}/bin/evemu-event /dev/input/event3 --type EV_KEY --code KEY_LEFTSHIFT --value 1 --sync
+              ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code KEY_LEFTSHIFT --value 1 --sync
               if [[ "''${morse_letters[$sequence]}" == ":" ]]; then
                   ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_SEMICOLON" --value 1 --sync
                   ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_SEMICOLON" --value 0 --sync
@@ -193,7 +194,7 @@ in
                   ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_EQUAL" --value 1 --sync
                   ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code "KEY_EQUAL" --value 0 --sync
               fi
-              ${pkgs.evemu}/bin/evemu-event /dev/input/event3 --type EV_KEY --code KEY_LEFTSHIFT --value 0 --sync
+              ${pkgs.evemu}/bin/evemu-event $KEYBOARD_DEV --type EV_KEY --code KEY_LEFTSHIFT --value 0 --sync
           fi
 
           rm /tmp/morse_code_letter

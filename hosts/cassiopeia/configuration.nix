@@ -18,7 +18,7 @@
     xserver.xkb.enable = true;
     udev.enable = true;
     openshut.enable = true;
-    openshut.keyboardInputPath = /dev/input/event8;
+    openshut.keyboardInputPath = "/dev/input/event8";
     home-assistant.enable = true;
   };
 
