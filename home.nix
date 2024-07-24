@@ -32,6 +32,7 @@
     zap
     mozillavpn
     xournalpp
+    teamviewer
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
