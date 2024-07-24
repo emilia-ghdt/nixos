@@ -135,6 +135,7 @@
     pkgs.vial
     pkgs.qmk
     pkgs.gnomeExtensions.window-is-ready-remover
+    pkgs.iio-sensor-proxy
     stable.bat
   ];
 
