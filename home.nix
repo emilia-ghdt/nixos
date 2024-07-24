@@ -44,6 +44,8 @@
     gcc
     rustfmt
     clippy
+    go
+    gdb
   ];
 
   home.stateVersion = "23.11"; # Please read the comment before changing.
