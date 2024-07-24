@@ -1,15 +1,11 @@
-{ pkgs, lib, config, ... }:
+{ lib, pkgs, config, ... }:
 with lib;
-let cfg = config.mayniklas.programs.direnv;
+let cfg = config.siren.programs.direnv;
 in
 {
-
-  options.mayniklas.programs.direnv = {
-    enable = mkEnableOption "activate direnv";
-  };
+  options.siren.programs.direnv.enable = mkEnableOption "enable direnv";
 
   config = mkIf cfg.enable {
-
     programs = {
       direnv = {
         enable = true;
@@ -20,7 +16,5 @@ in
       git = { ignores = [ ".direnv/" ]; };
       vscode = { extensions = with pkgs.vscode-extensions; [ mkhl.direnv ]; };
     };
-
   };
-
 }

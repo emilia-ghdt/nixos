@@ -14,8 +14,7 @@ let
   validFiles = dir:
     map (file: ./. + "/${file}") (filter
       (file:
-        hasSuffix ".nix" file && file != "default.nix"
-        && !lib.hasPrefix "x/taffybar/" file)
+        hasSuffix ".nix" file && file != "default.nix")
       (files dir));
 in
 {
