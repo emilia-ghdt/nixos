@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, stable, inputs, ... }:
 
 {
   imports = [
@@ -10,7 +10,9 @@
   home.username = "emilia";
   home.homeDirectory = "/home/emilia";
 
+
   home.packages = with pkgs; [
+    stable.kicad
     firefox
     thunderbird
     vscodium
@@ -19,7 +21,6 @@
     cmake
     discord
     blender
-    kicad
     spotify
     obsidian
     freecad

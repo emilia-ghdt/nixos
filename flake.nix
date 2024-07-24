@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
+    stable.url = "github:NixOS/nixpkgs/nixos";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,7 +24,7 @@
     in
     {    
       nixosConfigurations.cassiopeia = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit stable; };
         modules = [ 
           ./hosts/cassiopeia/configuration.nix
           inputs.home-manager.nixosModules.default
@@ -30,7 +32,7 @@
       };
 
       nixosConfiguration.orion = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit stable; };
         modules = [
           ./hosts/orion/configuration.nix
           inputs.home-manager.nixosModules.default
