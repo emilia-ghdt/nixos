@@ -1,4 +1,4 @@
-{ config, pkgs, stable, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -12,7 +12,8 @@
 
 
   home.packages = with pkgs; [
-    stable.kicad
+    cura
+    kicad
     firefox
     thunderbird
     vscodium

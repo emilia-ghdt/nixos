@@ -1,10 +1,9 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    stable.url = "github:NixOS/nixpkgs/nixos";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,10 +16,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs { inherit system; };
+      stable = import nixpkgs-stable { inherit system; };
     in
     {    
       nixosConfigurations.cassiopeia = nixpkgs.lib.nixosSystem {

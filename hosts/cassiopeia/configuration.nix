@@ -3,7 +3,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, stable, lib, inputs, ... }:
+{ pkgs, stable, inputs, lib, ... }:
 
 {
   imports =
@@ -128,14 +128,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    via
-    vial
-    qmk
-    gnomeExtensions.window-is-ready-remover
-    bat
+  environment.systemPackages = [
+    pkgs.neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.wget
+    pkgs.via
+    pkgs.vial
+    pkgs.qmk
+    pkgs.gnomeExtensions.window-is-ready-remover
+    stable.bat
   ];
 
   services.udev.packages = with pkgs; [
