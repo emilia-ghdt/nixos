@@ -73,5 +73,8 @@ with lib; {
     parsec-bin # remote desktop
     netbird-ui # wireguard mesh vpn
     openconnect # cisco vpn
+
+    # custom packages
+    siren.set-performance
   ];
 }
