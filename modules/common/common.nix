@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, flake-self, config, home-manager, ... }:
+{ lib, pkgs, flake-self, config, ... }:
 with lib;
 let cfg = config.siren.common;
 in
@@ -16,8 +16,16 @@ in
       du-dust
       ripgrep
       nix-ld
-      busybox
+      toybox
+      calc
+      fzf
+      zoxide
     ] ++ [ flake-self.inputs.nix-autobahn ];
+
+    programs = {
+      zsh.enable = true;
+      fish.enable = true;
+    };
 
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;

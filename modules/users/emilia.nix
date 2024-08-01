@@ -11,6 +11,7 @@ in
     users.users.emilia = {
       isNormalUser = true;
       description = "Emilia Groß-Hardt";
+      shell = pkgs.fish;
       extraGroups = [ "networkmanager" "wheel" "dialout" ];
     };
   };

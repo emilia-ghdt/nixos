@@ -33,7 +33,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-stable, sops-nix, nix-autobahn, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };

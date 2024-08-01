@@ -4,10 +4,6 @@ with lib; {
 
   siren.programs = {
     vscode.enable = true;
-    alacritty.enable = true;
-    direnv.enable = true;
-    neovim.enable = true;
-    rust.enable = true;
   };
   
   fonts.fontconfig.enable = true;

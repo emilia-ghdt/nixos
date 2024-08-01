@@ -1,4 +1,4 @@
-{ lib, pkgs, stable, config, home-manager, ... }:
+{ lib, pkgs, stable, config, ... }:
 with lib;
 let cfg = config.siren.gaming;
 in

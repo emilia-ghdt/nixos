@@ -1,4 +1,4 @@
-{ config, flake-self, system-config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 with lib;
 let cfg = config.siren.convertible;
 in
@@ -8,6 +8,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    siren.laptop.enable = true;
     # TODO: screen rotation, wacom support
 
     hardware.sensor.iio.enable = mkDefault true;

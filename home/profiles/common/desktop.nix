@@ -2,8 +2,13 @@
 with lib; {
   imports = [ ./common.nix ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  siren.programs = {
+    alacritty.enable = true;
+    shell.enable = true;
+    sway.enable = true;
+    direnv.enable = true;
+    neovim.enable = true;
+    rust.enable = true;
   };
 
   home.packages = with pkgs; [
@@ -66,6 +71,7 @@ with lib; {
     ddcui # monitor settings
     vial # keyboard firmware settings
     screen-message
+    localsend # opensource airdrop
 
     # Network
     zap # proxy for pentesting
