@@ -4,7 +4,7 @@ with lib;
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-    # TODO shell
+  # TODO shell
   home.packages = with pkgs; [
     # Passwords
     rbw # bitwarden cli
@@ -22,8 +22,6 @@ with lib;
     config = {
       allowUnfree = true;
     };
-    # overlays = [
-    #   flake-self.inputs.bonn-mensa.overlays.default
-    # ];
+    overlays = [ flake-self.overlays.default ];
   };
 }
