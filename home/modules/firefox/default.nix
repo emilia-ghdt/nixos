@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.programs.firefox;
 in
 {
-  options.siren.programs.firefox.enable = mkEnableOption "enable firefox config";
+  options.siren.programs.firefox.enable = mkEnableOption "firefox config";
 
   config = mkIf cfg.enable {
     home.sessionVariables = {

@@ -35,17 +35,6 @@
 
   outputs = { self, nixpkgs, nixpkgs-stable, sops-nix, nix-autobahn, ... }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
-      stable = import nixpkgs-stable { inherit system; };
-
-      # Helper function to get regular files in a directory
-      filesIn = dirPath:
-        let
-          dirContents = builtins.readDir dirPath;
-        in
-        (builtins.filter (name: dirContents.${name} == "regular") (builtins.attrNames dirContents));
-
       # provide a nixpkgs for a specific architecture
       supportedSystems = [ "aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;

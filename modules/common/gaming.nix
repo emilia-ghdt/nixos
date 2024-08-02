@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.gaming;
 in
 {
-  options.siren.gaming.enable = mkEnableOption "enable gaming config";
+  options.siren.gaming.enable = mkEnableOption "gaming config";
   
   config = mkIf cfg.enable {
     programs = {

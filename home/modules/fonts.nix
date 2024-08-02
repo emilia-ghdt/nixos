@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.fonts;
 in
 {
-  options.siren.fonts.enable = mkEnableOption "enable fonts";
+  options.siren.fonts.enable = mkEnableOption "fonts";
 
   config = mkIf cfg.enable {
     home.packages = with pkgs; [

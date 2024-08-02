@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.programs.alacritty;
 in
 {
-  options.siren.programs.alacritty.enable = mkEnableOption "enable alacritty";
+  options.siren.programs.alacritty.enable = mkEnableOption "alacritty";
 
   config = mkIf cfg.enable {
     siren.fonts.enable = mkDefault true;
@@ -12,6 +12,7 @@ in
       TERMINAL = "alacritty";
     };
     wayland.windowManager.sway.config.terminal = "alacritty";
+    wayland.windowManager.hyprland.config.terminal = "alacritty";
     
     programs.alacritty = {
       enable = true;

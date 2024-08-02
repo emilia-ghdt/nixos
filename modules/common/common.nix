@@ -3,9 +3,13 @@ with lib;
 let cfg = config.siren.common;
 in
 {
-  options.siren.common.enable = mkEnableOption "enable common config";
+  options.siren.common.enable = mkEnableOption "common config";
 
   config = mkIf cfg.enable {
+    siren = {
+      locale.enable = true;
+    };
+
     environment.systemPackages = with pkgs; [
       neovim
       git
@@ -16,12 +20,13 @@ in
       du-dust
       ripgrep
       nix-ld
-      toybox
+      pciutils
       calc
       fzf
       zoxide
     ] ++ [ flake-self.inputs.nix-autobahn ];
 
+    # Shells
     programs = {
       zsh.enable = true;
       fish.enable = true;
@@ -38,8 +43,8 @@ in
         experimental-features = [ "nix-command" "flakes" ];
 
         # Use binary cache
-        substituters = [ "https://cache.lounge.rocks/nix-cache" ];
-        trusted-public-keys = [ "nix-cache:4FILs79Adxn/798F8qk2PC1U8HaTlaPqptwNJrXNA1g=" ];
+        substituters = [ "https://hyprland.cachix.org" "https://cache.lounge.rocks/nix-cache" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-cache:4FILs79Adxn/798F8qk2PC1U8HaTlaPqptwNJrXNA1g=" ];
       };
       # Set the $NIX_PATH entry for nixpkgs. This is necessary in
       # this setup with flakes, otherwise commands like `nix-shell

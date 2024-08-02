@@ -4,7 +4,7 @@ let cfg = config.siren.openshut;
 in
 {
   options.siren.openshut = {
-    enable = mkEnableOption "enable open shut morse";
+    enable = mkEnableOption "open shut morse";
     keyboardInputPath = mkOption {
       type = types.str;
       example = "/dev/input/event3";

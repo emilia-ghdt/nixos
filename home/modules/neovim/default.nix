@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.programs.neovim;
 in
 {
-  options.siren.programs.neovim.enable = mkEnableOption "enable neovim config";
+  options.siren.programs.neovim.enable = mkEnableOption "neovim config";
 
   config = mkIf cfg.enable {
     home.sessionVariables = {

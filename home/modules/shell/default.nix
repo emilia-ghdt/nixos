@@ -4,7 +4,7 @@ let cfg = config.siren.programs.shell;
 in
 {
   options.siren.programs.shell = {
-    enable = mkEnableOption "enable shell config";
+    enable = mkEnableOption "shell config";
     
   };
 

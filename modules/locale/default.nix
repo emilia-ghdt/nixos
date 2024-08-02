@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.locale;
 in
 {
-  options.siren.locale.enable = mkEnableOption "enable locale config";
+  options.siren.locale.enable = mkEnableOption "locale config";
 
   config = mkIf cfg.enable {
     # Set your time zone.
@@ -23,7 +23,14 @@ in
       LC_TIME = "de_DE.UTF-8";
     };
 
+    # Configure keymap
+    services.xserver.xkb = {
+      layout = "de";
+      variant = "";
+    };
+
     # Configure console keymap
-    console.keyMap = "de";
+    console.useXkbConfig = true;
+
   };
 }

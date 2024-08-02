@@ -4,7 +4,7 @@ let cfg = config.siren.home-assistant;
 in
 {
   options.siren.home-assistant = {
-    enable = mkEnableOption "enable basic home-assistant config";
+    enable = mkEnableOption "basic home-assistant config";
   };
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ 8123 ];

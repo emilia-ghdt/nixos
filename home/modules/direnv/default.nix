@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.programs.direnv;
 in
 {
-  options.siren.programs.direnv.enable = mkEnableOption "enable direnv";
+  options.siren.programs.direnv.enable = mkEnableOption "direnv";
 
   config = mkIf cfg.enable {
     programs = {

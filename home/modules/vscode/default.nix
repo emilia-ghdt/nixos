@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.programs.vscode;
 in
 {
-  options.siren.programs.vscode.enable = mkEnableOption "enable vscode";
+  options.siren.programs.vscode.enable = mkEnableOption "vscode";
 
   config = mkIf cfg.enable {
     siren.fonts.enable = mkDefault true;

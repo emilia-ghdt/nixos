@@ -4,7 +4,7 @@ let cfg = config.siren.users.emilia;
 in
 {
   options.siren.users.emilia = {
-    enable = mkEnableOption "enable user emilia";
+    enable = mkEnableOption "user emilia";
   };
   
   config = mkIf cfg.enable {
@@ -12,7 +12,8 @@ in
       isNormalUser = true;
       description = "Emilia Groß-Hardt";
       shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" "dialout" ];
+      extraGroups = [ "networkmanager" "wheel" "dialout" ]
+      ++ lib.optionals siren.wayland [ "audio" "video" ];
     };
   };
 }

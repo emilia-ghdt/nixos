@@ -3,7 +3,7 @@ with lib;
 let cfg = config.siren.tlp;
 in
 {
-  options.siren.tlp.enable = mkEnableOption "enable tlp config";
+  options.siren.tlp.enable = mkEnableOption "tlp config";
 
   config = mkIf cfg.enable {#
     # disable power profiles daemon

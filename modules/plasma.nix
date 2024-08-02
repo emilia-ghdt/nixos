@@ -4,7 +4,7 @@ let cfg = config.siren.plasma;
 in
 {
   options.siren.plasma = {
-    enable = mkEnableOption "enable plasma";
+    enable = mkEnableOption "plasma";
   };
   
   config = mkIf cfg.enable {
