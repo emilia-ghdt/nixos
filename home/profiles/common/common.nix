@@ -22,6 +22,20 @@ with lib;
     config = {
       allowUnfree = true;
     };
-    overlays = [ flake-self.overlays.default ];
+    overlays = [
+      flake-self.overlays.default
+      (self: super: {
+        # access overlay by using pkgs.withCUDA.<package>
+        withCUDA = import flake-self.inputs.nixpkgs {
+          system = "${pkgs.system}";
+          config = { allowUnfree = true; cudaSupport = true; };
+        };
+        # access overlay by using pkgs.stable.<package>
+        stable = import flake-self.inputs.nixpkgs-stable {
+          system = "${pkgs.system}";
+          config = { allowUnfree = true; };
+        };
+      })
+    ];
   };
 }
