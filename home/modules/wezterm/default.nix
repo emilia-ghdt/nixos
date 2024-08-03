@@ -11,9 +11,9 @@ in
     home.sessionVariables = {
       TERMINAL = "wezterm";
     };
-    wayland.windowManager.sway.config.terminal = "wezterm";
-    wayland.windowManager.hyprland.config.terminal = "wezterm";
-    
+    wayland.windowManager.sway.config.terminal = "${pkgs.wezterm}/bin/wezterm";
+    wayland.windowManager.hyprland.settings.terminal = "${pkgs.wezterm}/bin/wezterm";
+
     programs.wezterm = {
       enable = true;
 
