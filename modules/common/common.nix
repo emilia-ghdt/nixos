@@ -35,7 +35,21 @@ in
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
-    nixpkgs.overlays = [ flake-self.overlays.default ];
+    nixpkgs.overlays = [
+      flake-self.overlays.default
+      (self: super: {
+        # access overlay by using pkgs.withCUDA.<package>
+        withCUDA = import flake-self.inputs.nixpkgs {
+          system = "${pkgs.system}";
+          config = { allowUnfree = true; cudaSupport = true; };
+        };
+        # access overlay by using pkgs.stable.<package>
+        stable = import flake-self.inputs.nixpkgs-stable {
+          system = "${pkgs.system}";
+          config = { allowUnfree = true; };
+        };
+      })
+    ];
 
     nix = {
       settings = {
