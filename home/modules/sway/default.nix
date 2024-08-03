@@ -10,8 +10,6 @@ in
       enable = true;
       config = rec {
         modifier = "Mod4";
-        # Use alacritty as default terminal
-        terminal = "alacritty";
         startup = [
           # Launch Firefox on start
           # {

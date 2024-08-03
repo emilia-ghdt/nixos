@@ -8,10 +8,8 @@ in
   config = mkIf cfg.enable {
     siren = {
       desktop.enable = true;
-      nvidia.onTheGoBootOption = mkDefault true;
       # TODO: autocpufreq
       tlp.enable = true;
-      nvidia.hasIGpu = true;
     };
     
     hardware.bluetooth = {

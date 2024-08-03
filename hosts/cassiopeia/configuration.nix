@@ -11,17 +11,11 @@
     gaming.enable = true;
     # plasma.enable = true;
     # xserver.enable = true;
-    xserver.xkb.enable = true;
     udev.enable = true;
     openshut.enable = true;
     openshut.keyboardInputPath = "/dev/input/event8";
     home-assistant.enable = true;
-    nvidia = {
-      enable = true;
-      iGpuBrand = "amdgpu";
-      iGpuId = "PCI:8:0:0";
-      dGpuId = "PCI:1:0:0";
-    };
+    nvidia.enable = true;
   };
 
   # Home-Manager
@@ -57,7 +51,6 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

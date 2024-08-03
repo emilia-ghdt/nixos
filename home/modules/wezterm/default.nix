@@ -12,7 +12,6 @@ in
       TERMINAL = "wezterm";
     };
     wayland.windowManager.sway.config.terminal = "wezterm";
-    wayland.windowManager.hyprland.config.terminal = "wezterm";
     
     programs.wezterm = {
       enable = true;

@@ -13,7 +13,7 @@ in
       description = "Emilia Groß-Hardt";
       shell = pkgs.fish;
       extraGroups = [ "networkmanager" "wheel" "dialout" ]
-      ++ lib.optionals siren.wayland [ "audio" "video" ];
+      ++ lib.optionals config.siren.wayland.enable [ "audio" "video" ];
     };
   };
 }

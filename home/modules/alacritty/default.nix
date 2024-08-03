@@ -12,7 +12,6 @@ in
       TERMINAL = "alacritty";
     };
     wayland.windowManager.sway.config.terminal = "alacritty";
-    wayland.windowManager.hyprland.config.terminal = "alacritty";
     
     programs.alacritty = {
       enable = true;

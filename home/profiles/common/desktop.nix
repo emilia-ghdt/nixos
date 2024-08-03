@@ -3,8 +3,9 @@ with lib; {
   imports = [ ./common.nix ];
 
   siren.programs = {
-    alacritty.enable = true;
+    wezterm.enable = true;
     shell.enable = true;
+    hyprland.enable = true;
     sway.enable = true;
     direnv.enable = true;
     neovim.enable = true;
@@ -57,7 +58,7 @@ with lib; {
 
     # Text
     artem # ASCII art
-    logseq # knowledge base
+    (pkgs.logseq.override { electron = pkgs.electron_29; }) # knowledge base, electron 27 is eol
     obsidian # knowledge base
 
     # Documents
