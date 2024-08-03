@@ -31,6 +31,5 @@ in
 
     # Configure console keymap
     console.useXkbConfig = true;
-
   };
 }

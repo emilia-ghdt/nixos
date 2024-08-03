@@ -5,34 +5,10 @@ in
 {
   options.siren.nvidia = {
     enable = mkEnableOption "nvidia config";
-    onTheGoBootOption = mkOption {
-      type = types.bool;
-    };
-    hasIGpu = mkOption {
-      type = types.bool;
-      description = "Whether or not the device has an iGPU";
-    };
-    iGpuBrand = mkOption {
-      type = types.enum [ "amdgpu" "intel" ];
-      description = "iGPU";
-    };
-    iGpuId = mkOption {
-      type = types.str;
-      example = "PCI:8:0:0";
-      description = "iGPU id";
-    };
-    dGpuId = mkOption {
-      type = types.str;
-      example = "PCI:1:0:0";
-      description = "dGPU id";
-    };
   };
 
   config = mkIf cfg.enable {
-    # Enable OpenGL
-    hardware.opengl = {
-      enable = true;
-    };
+    hardware.graphics.enable = true;
 
     # Load nvidia driver for Xorg and Wayland
     services.xserver.videoDrivers = ["nvidia"];
@@ -68,28 +44,9 @@ in
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-      prime = mkIf cfg.enable {
-        sync.enable = true;
-
-        # Make sure to use the correct Bus ID values for your system!
-        nvidiaBusId = cfg.hasIGpu;
-        "${cfg.iGpuBrand}BusId" = cfg.iGpuId;
-      };
     };
 
-    specialisation = mkIf cfg.onTheGoBootOption && mkIf cfg.hasIGpu {
-      on-the-go.configuration = {
-        system.nixos.tags = [ "on-the-go" ];
-        hardware.nvidia = {
-          prime.offload.enable = lib.mkForce true;
-          prime.offload.enableOffloadCmd = lib.mkForce true;
-          prime.sync.enable = lib.mkForce false;
-        };
-      };
-    };
-
-    environment.systemPackages = with pkgs; (lib.optionals siren.wayland [
+    environment.systemPackages = with pkgs; (lib.optionals config.siren.wayland.enable [
       egl-wayland
     ]);
   };

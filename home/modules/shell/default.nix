@@ -5,7 +5,6 @@ in
 {
   options.siren.programs.shell = {
     enable = mkEnableOption "shell config";
-    
   };
 
   config = mkIf cfg.enable {
