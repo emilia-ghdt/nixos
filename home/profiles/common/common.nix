@@ -30,8 +30,8 @@ with lib;
           system = "${pkgs.system}";
           config = { allowUnfree = true; cudaSupport = true; };
         };
-        # access overlay by using pkgs.stable.<package>
-        stable = import flake-self.inputs.nixpkgs-stable {
+        # access overlay by using pkgs.stableRelease.<package>
+        stableRelease = import flake-self.inputs.nixpkgs-stable {
           system = "${pkgs.system}";
           config = { allowUnfree = true; };
         };
