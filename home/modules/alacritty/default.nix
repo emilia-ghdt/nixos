@@ -15,9 +15,6 @@ in
     
     programs.alacritty = {
       enable = true;
-
-      # TODO: interpolate with color theme
-      settings = import ./settings.nix;
     };
 
   };
