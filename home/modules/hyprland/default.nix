@@ -8,43 +8,18 @@ in
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      settings = {
-        "monitor" = ",preferred,auto,auto";
-        "$terminal" = "${pkgs.wezterm}/bin/wezterm";
-        "$fileManager" = "${pkgs.yazi}/bin/yazi";
-        "$menu" = "${pkgs.wofi}/bin/wofi";
-
-        "general" = {
-          "gaps_in" = 5;
-          "gaps_out" = 20;
-
-          "border_size" = 2;
-        };
-
-        "input" = {
-          "kb_layout" = "de";
-          "touchpad" = {
-            "natural_scroll" = false;
-          };
-        };
-
-        "misc" = {
-          "force_default_wallpaper" = -1;
-          "disable_hyprland_logo" = false;
-        };
-
-
-        "windowrulev2" = [
-          "suppressevent maximize, class:.*"
-        ];
-
-        # Bindings
-        "$mainMod" = "SUPER";
-
-        "bind" = [
-          "$mainMod, Q, exec, $terminal"
-        ];
-      };
+      extraConfig = builtins.replaceStrings 
+        [
+          "wezterm"
+          "yazi"
+          "wofi"
+        ]
+        [
+          "${pkgs.wezterm}/bin/wezterm"
+          "${pkgs.yazi}/bin/yazi"
+          "${pkgs.wofi}/bin/wofi"
+        ]
+        (builtins.readFile ./hyprland.conf);
     };
 
     # services.hypridle.enable = true;

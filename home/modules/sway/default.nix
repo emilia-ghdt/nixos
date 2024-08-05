@@ -16,8 +16,16 @@ in
           #   command = "firefox";
           # }
         ];
-      };
-    };
+input = {
+"type:keyboard" = {
+            xkb_layout = "de";
+            xkb_numlock = "enabled";
+          };
+          "type:touchpad" = {
+            click_method = "clickfinger";
+            tap = "enabled";
+          };      };
+    };};
 
     home.packages = with pkgs; [
       swaylock

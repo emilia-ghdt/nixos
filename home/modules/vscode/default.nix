@@ -6,8 +6,6 @@ in
   options.siren.programs.vscode.enable = mkEnableOption "vscode";
 
   config = mkIf cfg.enable {
-    siren.fonts.enable = mkDefault true;
-
     home.packages = with pkgs; [
       nil
       nixpkgs-fmt
@@ -48,14 +46,36 @@ in
         "terminal.integrated.fontSize" = 18;
         "workbench.colorTheme" = "GitHub Dark Default";
 
-        # jnoortheen.nix-ide
+
+        "[nix]" = {
+          "editor.defaultFormatter" = "jnoortheen.nix-ide";
+        };
         "nix" = {
           "enableLanguageServer" = true;
-          "serverPath" = "nil";
+          # "serverPath" = "${pkgs.nil}/bin/nil";
+          "serverPath" = "${pkgs.nixd}/bin/nixd";
           "serverSettings" = {
-            "nil" = {
+          # "nil" = {
+          #   "formatting" = {
+          #     "command" = [ "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" ];
+          #   };
+          # };
+            "nixd" = {
+              # "eval" = { };
               "formatting" = {
-                "command" = [ "nixpkgs-fmt" ];
+                "command" = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+              };
+              "options" = {
+                "nixos" = {
+                  "expr" = "(builtins.getFlake \"/home/emilia/nixos\").nixosConfigurations.cassiopeia.options";
+                };
+                "home-manager" = {
+                  "expr" = "(builtins.getFlake \"/home/emilia/nixos\").homeConfigurations.cassiopeia.options";
+                };
+                # "target" = {
+                #   "args" = [ ];
+                #   "installable" = "(builtins.getFlake \"\${workspaceFolder}\")#nixosConfigurations.<name>.options";
+                # };
               };
             };
           };

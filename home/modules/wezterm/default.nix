@@ -6,8 +6,6 @@ in
   options.siren.programs.wezterm.enable = mkEnableOption "wezterm";
 
   config = mkIf cfg.enable {
-    siren.fonts.enable = mkDefault true;
-    
     home.sessionVariables = {
       TERMINAL = "wezterm";
     };

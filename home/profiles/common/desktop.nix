@@ -1,4 +1,4 @@
-{ lib, pkgs, flake-self, config, system-config, ... }:
+{ lib, pkgs, ... }:
 with lib; {
   imports = [ ./common.nix ];
 
@@ -10,6 +10,7 @@ with lib; {
     direnv.enable = true;
     neovim.enable = true;
     rust.enable = true;
+    vscode.enable = true;
   };
 
   home.packages = with pkgs; [

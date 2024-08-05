@@ -35,6 +35,13 @@
 
   outputs = { self, nixpkgs, nixpkgs-stable, sops-nix, nix-autobahn, ... }@inputs:
     let
+    # Helper function to get regular files in a directory
+      filesIn = dirPath: 
+        let
+          dirContents = builtins.readDir dirPath;
+        in 
+          (builtins.filter (name: dirContents.${name} == "regular") (builtins.attrNames dirContents));
+          
       # provide a nixpkgs for a specific architecture
       supportedSystems = [ "aarch64-darwin" "aarch64-linux" "x86_64-darwin" "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
@@ -82,17 +89,17 @@
         (builtins.attrNames (builtins.readDir ./hosts))
       );
 
-      # homeConfigurations = builtins.listToAttrs (map
-      #   (name: {
-      #     inherit name;
-      #     value = { pkgs, lib, ... }: {
-      #     imports = [
-      #       (./home/profiles + "/${name}")
-      #     ] ++ (builtins.attrValues self.homeManagerModules);
-      #   };
-      #   })
-      #   (filesIn ./home/profiles)
-      # );
+      homeConfigurations = builtins.listToAttrs (map
+        (name: {
+          inherit name;
+          value = { pkgs, lib, ... }: {
+          imports = [
+            (./home/profiles + "/${name}")
+          ] ++ (builtins.attrValues self.homeManagerModules);
+        };
+        })
+        (filesIn ./home/profiles)
+      );
 
       # by using forAllSystems, we generate a package for each supported system
       packages = forAllSystems (system: {
