@@ -6,8 +6,6 @@ in
   options.siren.programs.alacritty.enable = mkEnableOption "alacritty";
 
   config = mkIf cfg.enable {
-    siren.fonts.enable = mkDefault true;
-    
     home.sessionVariables = {
       TERMINAL = "alacritty";
     };
