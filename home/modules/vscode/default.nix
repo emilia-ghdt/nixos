@@ -132,6 +132,7 @@ in
         rust-lang.rust-analyzer
         yzhang.markdown-all-in-one
         valentjn.vscode-ltex
+	ms-vscode.hexeditor
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "vscode-rhai";
@@ -144,6 +145,12 @@ in
           publisher = "probe-rs";
           version = "0.24.2";
           sha256 = "sha256-1Gs5D5was/ZOZQrVD3/UiRm5bb12vGIl60AZV2EnazQ=";
+        }
+	{
+          name = "vscode-opencl";
+          publisher = "galarius";
+          version = "0.8.3";
+          sha256 = "sha256-c9F6BGa2Mxl/Vvrvifwpq76hwMGkl0Li8IrJG865wBM=";
         }
       ];
     };
