@@ -8,9 +8,10 @@
             "args": [
                 "switch",
                 "--use-remote-sudo",
+                "--option", "eval-cache", "false",
                 "--show-trace",
                 "--flake",
-                ".",
+                "${workspaceFolder}",
             ],
             "group": "build",
         }

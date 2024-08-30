@@ -10,7 +10,24 @@ in
       EDITOR = "nvim";
     };
     
-    programs.neovim.enable = true;
-    # TODO
+    programs.neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+
+      extraLuaConfig = ''
+        print("Test")
+        vim.o.clipboard = 'unnamedplus'
+      '';
+
+      plugins = [
+        {
+          plugin = pkgs.vimPlugins.lualine-nvim;
+          config = ''
+            require("lualine").setup()
+          '';
+        }
+      ];
+    };
   };
 }

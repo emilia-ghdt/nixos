@@ -37,6 +37,10 @@ in
       rtkit.enable = true;
     };
 
+    environment.systemPackages = with pkgs; [
+      wl-clipboard-rs
+    ];
+
     programs.light.enable = true;
   };
 }

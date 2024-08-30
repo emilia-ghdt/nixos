@@ -25,6 +25,9 @@ with lib; {
     element-desktop
     signal-desktop
 
+    # Meetings
+    zoom-us
+
     # Video
     shotcut # video editor
     obs-studio # video streaming
