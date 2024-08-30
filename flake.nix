@@ -41,7 +41,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, sops-nix, nix-autobahn, ... }@inputs:
+  outputs = { self, nixpkgs, sops-nix, ... }@inputs:
     let
     # Helper function to get regular files in a directory
       filesIn = dirPath: 
