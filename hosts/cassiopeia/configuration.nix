@@ -18,6 +18,12 @@
     nvidia.enable = true;
   };
 
+  siren.networking = {
+    ports = {
+      localsend = true;
+    };
+  };
+
   # Home-Manager
   siren.home-manager = {
     enable = true;

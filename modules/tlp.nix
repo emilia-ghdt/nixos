@@ -1,16 +1,15 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.tlp;
 in
 {
-  options.siren.tlp.enable = mkEnableOption "tlp config";
+  options.siren.tlp.enable = lib.mkEnableOption "tlp config";
 
-  config = mkIf cfg.enable {#
+  config = lib.mkIf cfg.enable {#
     # disable power profiles daemon
-    services.power-profiles-daemon.enable = mkForce false;
+    services.power-profiles-daemon.enable = lib.mkForce false;
     # use tlp instead
     services.tlp = {
-      enable = mkDefault true;
+      enable = lib.mkDefault true;
       settings = {
         CPU_SCALING_GOVERNOR_ON_AC = "balance";
         CPU_SCALING_GOVERNOR_ON_BAT = "powersave";

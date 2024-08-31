@@ -1,11 +1,10 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.gaming;
 in
 {
-  options.siren.gaming.enable = mkEnableOption "gaming config";
+  options.siren.gaming.enable = lib.mkEnableOption "gaming config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     programs = {
       steam.enable = true;
       steam.gamescopeSession.enable = true;

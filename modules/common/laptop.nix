@@ -1,11 +1,10 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.laptop;
 in
 {
-  options.siren.laptop.enable = mkEnableOption "laptop config";
+  options.siren.laptop.enable = lib.mkEnableOption "laptop config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     siren = {
       desktop.enable = true;
       # TODO: autocpufreq

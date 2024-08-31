@@ -4,10 +4,10 @@ let cfg = config.siren.xserver;
 in
 {
   options.siren.xserver = {
-    enable = mkEnableOption "xserver config";
+    enable = lib.mkEnableOption "xserver config";
   };
   
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     services.xserver.enable = true;
   };
 }

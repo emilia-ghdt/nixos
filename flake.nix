@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -97,6 +101,7 @@
               (./hosts + "/${name}/configuration.nix")
               inputs.sops-nix.nixosModules.sops
               inputs.disko.nixosModules.default
+              inputs.impermanence.nixosModules.impermanence
             ];
           };
         })

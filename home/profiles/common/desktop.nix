@@ -1,5 +1,5 @@
 { lib, pkgs, ... }:
-with lib; {
+{
   imports = [ ./common.nix ];
 
   siren.programs = {

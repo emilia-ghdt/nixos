@@ -1,11 +1,10 @@
 { lib, pkgs, flake-self, config, ... }:
-with lib;
 let cfg = config.siren.common;
 in
 {
-  options.siren.common.enable = mkEnableOption "common config";
+  options.siren.common.enable = lib.mkEnableOption "common config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     siren = {
       locale.enable = true;
     };

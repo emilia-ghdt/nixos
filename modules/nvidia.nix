@@ -1,13 +1,12 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.nvidia;
 in
 {
   options.siren.nvidia = {
-    enable = mkEnableOption "nvidia config";
+    enable = lib.mkEnableOption "nvidia config";
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     hardware.graphics.enable = true;
 
     # Load nvidia driver for Xorg and Wayland

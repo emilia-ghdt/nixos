@@ -1,12 +1,11 @@
 { config, flake-self, system-config, pkgs, lib, ... }:
-with lib;
 let cfg = config.siren.home-assistant;
 in
 {
   options.siren.home-assistant = {
-    enable = mkEnableOption "basic home-assistant config";
+    enable = lib.mkEnableOption "basic home-assistant config";
   };
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [ 8123 ];
 
     virtualisation.oci-containers = {

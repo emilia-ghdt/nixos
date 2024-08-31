@@ -1,18 +1,17 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.openshut;
 in
 {
   options.siren.openshut = {
-    enable = mkEnableOption "open shut morse";
-    keyboardInputPath = mkOption {
-      type = types.str;
+    enable = lib.mkEnableOption "open shut morse";
+    keyboardInputPath = lib.mkOption {
+      type = lib.types.str;
       example = "/dev/input/event3";
       description = "use evemu describe to find";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       evemu
       acpid

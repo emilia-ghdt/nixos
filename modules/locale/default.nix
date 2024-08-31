@@ -1,11 +1,10 @@
 { lib, pkgs, config, home-manager, ... }:
-with lib;
 let cfg = config.siren.locale;
 in
 {
-  options.siren.locale.enable = mkEnableOption "locale config";
+  options.siren.locale.enable = lib.mkEnableOption "locale config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # Set your time zone.
     time.timeZone = "Europe/Berlin";
 

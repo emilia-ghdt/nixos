@@ -1,11 +1,10 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.wayland;
 in
 {
-  options.siren.wayland.enable = mkEnableOption "wayland config";
+  options.siren.wayland.enable = lib.mkEnableOption "wayland config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # xdg-desktop-portal works by exposing a series of D-Bus interfaces
     # known as portals under a well-known name
     # (org.freedesktop.portal.Desktop) and object path

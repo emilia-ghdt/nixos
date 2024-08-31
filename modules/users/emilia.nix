@@ -1,13 +1,12 @@
 { config, pkgs, lib, ... }:
-with lib;
 let cfg = config.siren.users.emilia;
 in
 {
   options.siren.users.emilia = {
-    enable = mkEnableOption "user emilia";
+    enable = lib.mkEnableOption "user emilia";
   };
   
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     users.users.emilia = {
       isNormalUser = true;
       description = "Emilia Groß-Hardt";

@@ -1,11 +1,10 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.fonts;
 in
 {
-  options.siren.fonts.enable = mkEnableOption "fonts";
+  options.siren.fonts.enable = lib.mkEnableOption "fonts";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     fonts.packages = with pkgs; [
       (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" "BitstreamVeraSansMono" "CascadiaCode" "CodeNewRoman" "ComicShannsMono" "DejaVuSansMono" "FiraCode" "FiraMono" "Hack" "iA-Writer" "JetBrainsMono" "MartianMono" "Monaspace" "Mononoki" "Noto" "ProggyClean" "Recursive" "RobotoMono" "ShareTechMono" "SourceCodePro" "UbuntuMono" "VictorMono" ]; })
     ];

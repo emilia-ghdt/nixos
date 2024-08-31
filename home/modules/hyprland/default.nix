@@ -1,18 +1,22 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.programs.hyprland;
 in
 {
   options.siren.programs.hyprland = {
-    enable = mkEnableOption "hyprland config";
-    monitors = mkOption {
-      type = types.list types.str;
+    enable = lib.mkEnableOption "hyprland config";
+    monitors = lib.mkOption {
+      type = lib.types.list lib.types.str;
       description = "monitors";
       default = ",preferred,auto,1";
     };
+    terminal = lib.mkOption {
+      type = lib.types.str;
+      description = "default terminal emulator";
+      default = "$TERMINAL";
+    };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       
@@ -44,7 +48,7 @@ in
         # See https://wiki.hyprland.org/Configuring/Keywords/
 
         # Set programs that you use
-        "$terminal" = "${pkgs.wezterm}/bin/wezterm";
+        "$terminal" = cfg.terminal;
         "$fileManager" = "${pkgs.yazi}/bin/yazi";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
 

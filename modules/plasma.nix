@@ -1,13 +1,12 @@
 { config, flake-self, system-config, pkgs, lib, ... }:
-with lib;
 let cfg = config.siren.plasma;
 in
 {
   options.siren.plasma = {
-    enable = mkEnableOption "plasma";
+    enable = lib.mkEnableOption "plasma";
   };
   
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     # Enable the KDE Plasma Desktop Environment.
     services.desktopManager.plasma6.enable = true;
   };

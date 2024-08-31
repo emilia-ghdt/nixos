@@ -1,11 +1,10 @@
 { lib, pkgs, config, ... }:
-with lib;
 let cfg = config.siren.desktop;
 in
 {
-  options.siren.desktop.enable = mkEnableOption "desktop config";
+  options.siren.desktop.enable = lib.mkEnableOption "desktop config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     siren = {
       common.enable = true;
       wayland.enable = true;
