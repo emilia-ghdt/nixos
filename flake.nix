@@ -16,6 +16,11 @@
       url = "github:numtide/flake-utils";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +46,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, sops-nix, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
     # Helper function to get regular files in a directory
       filesIn = dirPath: 
@@ -90,7 +95,8 @@
             specialArgs = { flake-self = self; } // inputs;
             modules = builtins.attrValues self.nixosModules ++ [
               (./hosts + "/${name}/configuration.nix")
-              sops-nix.nixosModules.sops
+              inputs.sops-nix.nixosModules.sops
+              inputs.disko.nixosModules.default
             ];
           };
         })
