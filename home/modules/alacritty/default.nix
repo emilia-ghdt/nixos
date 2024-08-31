@@ -10,6 +10,7 @@ in
       TERMINAL = "alacritty";
     };
     wayland.windowManager.sway.config.terminal = "alacritty";
+    siren.programs.hyprland.terminal = "${pkgs.alacritty}/bin/alacritty";
     
     programs.alacritty = {
       enable = true;

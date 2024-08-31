@@ -40,6 +40,8 @@ in
       wl-clipboard-rs
     ];
 
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
     programs.light.enable = true;
   };
 }

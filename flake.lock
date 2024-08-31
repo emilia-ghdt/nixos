@@ -205,6 +205,37 @@
         "type": "github"
       }
     },
+    "impermanence": {
+      "locked": {
+        "lastModified": 1724489415,
+        "narHash": "sha256-ey8vhwY/6XCKoh7fyTn3aIQs7WeYSYtLbYEG87VCzX4=",
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "rev": "c7f5b394397398c023000cf843986ee2571a1fd7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "impermanence",
+        "type": "github"
+      }
+    },
+    "lua-ls-cc-tweaked": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722697383,
+        "narHash": "sha256-GYwRkWXL1h71Y8/Vi9GJSA43c02fmFWZgQvBFTMewck=",
+        "owner": "nvim-computercraft",
+        "repo": "lua-ls-cc-tweaked",
+        "rev": "1bb7d57d1124e8e9c680ad6db5d0e02aaf2a5125",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-computercraft",
+        "repo": "lua-ls-cc-tweaked",
+        "type": "github"
+      }
+    },
     "nix-autobahn": {
       "inputs": {
         "flake-utils": [
@@ -352,6 +383,8 @@
         "disko": "disko",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "impermanence": "impermanence",
+        "lua-ls-cc-tweaked": "lua-ls-cc-tweaked",
         "nix-autobahn": "nix-autobahn",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

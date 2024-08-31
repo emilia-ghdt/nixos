@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, flake-self, ... }:
 with lib;
 let cfg = config.siren.programs.neovim;
 in
@@ -9,6 +9,8 @@ in
     home.sessionVariables = {
       EDITOR = "nvim";
     };
+
+    home.file.".LLS-3rd-Party-Addons/cc-tweaked".source = flake-self.inputs.lua-ls-cc-tweaked;
     
     programs.neovim = {
       enable = true;

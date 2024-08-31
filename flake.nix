@@ -48,6 +48,11 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lua-ls-cc-tweaked = {
+      url = "github:nvim-computercraft/lua-ls-cc-tweaked";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

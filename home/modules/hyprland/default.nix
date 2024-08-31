@@ -5,14 +5,13 @@ in
   options.siren.programs.hyprland = {
     enable = lib.mkEnableOption "hyprland config";
     monitors = lib.mkOption {
-      type = lib.types.list lib.types.str;
+      type = lib.types.listOf lib.types.str;
       description = "monitors";
-      default = ",preferred,auto,1";
+      default = [",preferred,auto,1"];
     };
     terminal = lib.mkOption {
       type = lib.types.str;
       description = "default terminal emulator";
-      default = "$TERMINAL";
     };
   };
 
@@ -187,14 +186,6 @@ in
             workspace_swipe = false;
         };
 
-        # Example per-device config
-        # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-        device = {
-            name = "epic-mouse-v1";
-            sensitivity = -0.5;
-        };
-
-
         ####################
         ### KEYBINDINGSS ###
         ####################
@@ -218,6 +209,11 @@ in
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
           "$mainMod, down, movefocus, d"
+
+          "$mainMod SHIFT, left, movewindow, l"
+          "$mainMod SHIFT, right, movewindow, r"
+          "$mainMod SHIFT, up, movewindow, u"
+          "$mainMod SHIFT, down, movewindow, d"
 
           # Switch workspaces with mainMod + [0-9]
           "$mainMod, 1, workspace, 1"

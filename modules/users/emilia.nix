@@ -10,9 +10,10 @@ in
     users.users.emilia = {
       isNormalUser = true;
       description = "Emilia Groß-Hardt";
-      shell = pkgs.fish;
+      shell = pkgs.zsh;
       extraGroups = [ "networkmanager" "wheel" "dialout" ]
       ++ lib.optionals config.siren.wayland.enable [ "audio" "video" ];
+	initialPassword = "1";
     };
   };
 }
