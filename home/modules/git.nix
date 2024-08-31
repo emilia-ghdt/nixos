@@ -11,22 +11,17 @@ in
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
-
-          aliases = {
-        gud = "add";
-        on-my-level = "push -f --with-lease";
-      };
       extraConfig = {
         user = {
           name = "Emilia Groß-Hardt";
           # email = "${secrets.user.mainemail}"; TODO
         };
-        commit.gpgsign = true;
+        # commit.gpgsign = true;
         init.defaultBranch = "main";
-        merge = {
-          ff = "no";
-          no-commit = "yes";
-        };
+        # merge = {
+        #   ff = "no";
+        #   no-commit = "yes";
+        # };
         pull.ff = "only";
       };
 

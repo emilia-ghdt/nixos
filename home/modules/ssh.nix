@@ -14,7 +14,7 @@ in
 
       matchBlocks = {
         "github.com" = {
-          identityFile = "$HOME/.ssh/emilia_ed25519";
+          identityFile = "~/.ssh/emilia_ed25519";
           user = "git";
           port = 22;
         };
