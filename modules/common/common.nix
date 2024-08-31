@@ -56,10 +56,18 @@ in
         # Enable nix command and flakes
         experimental-features = [ "nix-command" "flakes" ];
 
+
         # Use binary cache
         substituters = [ "https://hyprland.cachix.org" "https://cache.lounge.rocks/nix-cache" ];
         trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" "nix-cache:4FILs79Adxn/798F8qk2PC1U8HaTlaPqptwNJrXNA1g=" ];
+	# Save space by hardlinking store files
+	auto-optimise-store = true;
       };
+gc = {
+	automatic = true;
+	dates = "weekly";
+	options = "--delete-older-than 3d";
+    };
       # Set the $NIX_PATH entry for nixpkgs. This is necessary in
       # this setup with flakes, otherwise commands like `nix-shell
       # -p pkgs.htop` will keep using an old version of nixpkgs.

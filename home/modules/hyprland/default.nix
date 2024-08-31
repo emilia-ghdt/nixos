@@ -3,11 +3,19 @@ with lib;
 let cfg = config.siren.programs.hyprland;
 in
 {
-  options.siren.programs.hyprland.enable = mkEnableOption "hyprland config";
+  options.siren.programs.hyprland = {
+    enable = mkEnableOption "hyprland config";
+    monitors = mkOption {
+      type = types.list types.str;
+      description = "monitors";
+      default = ",preferred,auto,1";
+    };
+  };
 
   config = mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      
       settings = {
         # This is an example Hyprland config file.
         # Refer to the wiki for more information.
@@ -26,7 +34,7 @@ in
         ################
 
         # See https://wiki.hyprland.org/Configuring/Monitors/
-        monitor = ",preferred,auto,auto";
+        monitor = cfg.monitors;
 
 
         ###################
@@ -102,7 +110,7 @@ in
             drop_shadow = true;
             shadow_range = 4;
             shadow_render_power = 3;
-            col.shadow = "rgba(1a1a1aee)";
+            "col.shadow" = "rgba(1a1a1aee)";
 
             # https://wiki.hyprland.org/Configuring/Variables/#blur
             blur = {
@@ -240,8 +248,8 @@ in
           "$mainMod, mouse_up, workspace, e-1"
 
           # Move/resize windows with mainMod + LMB/RMB and dragging
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
+          "$mainMod, mouse:272, moveactive"
+          "$mainMod, mouse:273, resizeactive"
         ];
 
         ##############################
@@ -257,7 +265,6 @@ in
         # Example windowrule v2
         # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 
-        windowrulev2 = "suppressevent maximize, class:.*"; # You'll probably like this.
       };
     };
 

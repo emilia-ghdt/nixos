@@ -3,7 +3,7 @@ with lib; {
   imports = [ ./common.nix ];
 
   siren.programs = {
-    wezterm.enable = true;
+    alacritty.enable = true;
     shell.enable = true;
     hyprland.enable = true;
     sway.enable = true;
