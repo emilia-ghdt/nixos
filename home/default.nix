@@ -46,6 +46,7 @@ in
           home.homeDirectory = "/home/${config.siren.home-manager.username}";
         }
         (./profiles + "/${cfg.profile}.nix")
+        flake-self.inputs.nixvim.homeManagerModules.nixvim
       ];
     };
   };

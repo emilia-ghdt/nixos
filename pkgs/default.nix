@@ -1,9 +1,9 @@
 inputs:
-self: super: {
+final: prev: {
 
   # our packages are accessible via siren.<name>
   siren = {
-    set-performance = super.pkgs.callPackage ./set-performance { };
+    set-performance = prev.pkgs.callPackage ./set-performance { };
   };
 
 }

@@ -1,35 +1,33 @@
 { lib, pkgs, config, flake-self, ... }:
-with lib;
 let cfg = config.siren.programs.neovim;
 in
 {
-  options.siren.programs.neovim.enable = mkEnableOption "neovim config";
+  imports = [
+    ./nvim
+  ];
+  
+  options.siren.programs.neovim.enable = lib.mkEnableOption "neovim config";
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.sessionVariables = {
       EDITOR = "nvim";
     };
 
+    # TODO move to lsp config
     home.file.".LLS-3rd-Party-Addons/cc-tweaked".source = flake-self.inputs.lua-ls-cc-tweaked;
-    
-    programs.neovim = {
+
+    programs.nixvim = {
       enable = true;
+      defaultEditor = true;
+      
       viAlias = true;
       vimAlias = true;
+      vimdiffAlias = true;
 
-      extraLuaConfig = ''
-        print("Test")
-        vim.o.clipboard = 'unnamedplus'
-      '';
-
-      plugins = [
-        {
-          plugin = pkgs.vimPlugins.lualine-nvim;
-          config = ''
-            require("lualine").setup()
-          '';
-        }
-      ];
+      # performance = {
+      #   byteCompileLua.enable = true;
+      #   combinePlugins = {};
+      # };
     };
   };
 }

@@ -378,6 +378,22 @@
         "type": "github"
       }
     },
+    "plugin-lazydev-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721897868,
+        "narHash": "sha256-D5gP2rVPYoWc8hslTrH7Z90cE7XEu+tfkD6FZzY/iPk=",
+        "owner": "folke",
+        "repo": "lazydev.nvim",
+        "rev": "491452cf1ca6f029e90ad0d0368848fac717c6d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "lazydev.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -389,6 +405,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
+        "plugin-lazydev-nvim": "plugin-lazydev-nvim",
         "rust-overlay": "rust-overlay",
         "sops-nix": "sops-nix"
       }

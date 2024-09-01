@@ -64,7 +64,7 @@
 
     # Text
     artem # ASCII art
-    (pkgs.logseq.override { electron = pkgs.electron_29; }) # knowledge base, electron 27 is eol
+    (pkgs.logseq.override { electron = pkgs.electron_30; }) # knowledge base, electron 27 is eol
     obsidian # knowledge base
 
     # Documents

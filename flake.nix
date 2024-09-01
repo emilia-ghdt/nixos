@@ -53,6 +53,9 @@
       url = "github:nvim-computercraft/lua-ls-cc-tweaked";
       flake = false;
     };
+
+    plugin-lazydev-nvim.url = "github:folke/lazydev.nvim";
+    plugin-lazydev-nvim.flake = false;
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

@@ -19,6 +19,14 @@ in
           port = 22;
         };
       };
+
+      matchBlocks = {
+        "gitlab.ptyonic.dev" = {
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "git";
+          port = 22;
+        };
+      };
     };
   };
 }
