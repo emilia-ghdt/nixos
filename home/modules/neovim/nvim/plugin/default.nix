@@ -16,6 +16,7 @@ in
     programs.nixvim.plugins = {
     #   sleuth.enable = true;
       comment.enable = true;
+      otter.enable = true;
     #   indent-blankline.enable = true;
 
       git-worktree = {
