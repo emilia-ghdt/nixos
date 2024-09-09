@@ -117,7 +117,7 @@ in
 
         # https://wiki.hyprland.org/Configuring/Variables/#decoration
         decoration = {
-            rounding = 10;
+            rounding = 8;
 
             # Change transparency of focused and unfocused windows
             active_opacity = 1.0;
@@ -132,9 +132,9 @@ in
             blur = {
                 enabled = true;
                 size = 3;
-                passes = 1;
+                passes = 3;
                 
-                vibrancy = 0.1696;
+                vibrancy = 0.13;
             };
         };
 

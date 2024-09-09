@@ -27,6 +27,15 @@ in
           port = 22;
         };
       };
+
+      matchBlocks = {
+        "contabo" = {
+          hostname = "ptyonic.dev";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "root";
+          port = 21449;
+        };
+      };
     };
   };
 }

@@ -30,6 +30,7 @@ in
           enable = true;
           filetypes = ["java"];
         };
+        pyright.enable = true;
     #     emmet-ls.enable = true;
     #     tsserver.enable = true;
     #     cssls.enable = true;
@@ -50,27 +51,27 @@ in
     #     zls.enable = true;
         rust-analyzer = {
           enable = true;
-    #       installRustc = false;
-    #       installCargo = false;
-    #       cmd = [ "rust-analyzer" ];
-    #       settings = {
+          installRustc = false;
+          installCargo = false;
+          cmd = [ "rust-analyzer" ];
+          settings = {
     #         imports = {
     #           granularity.group = "crate";
     #           prefix = "self";
     #           preferNoStd = true;
     #         };
-    #         check = {
-    #           command = "clippy";
-    #           allTargets = true;
-    #         };
+            check = {
+              command = "clippy";
+              allTargets = true;
+            };
     #         completion.fullFunctionSignatures.enable = false;
-    #         cargo = {
+            cargo = {
     #           buildScripts.enable = false;
-    #           allTargets = true;
-    #           features = "all";
-    #         };
-    #         procMacro.enable = true;
-    #       };
+              allTargets = true;
+              features = "all";
+            };
+            procMacro.enable = true;
+          };
         };
       };
 

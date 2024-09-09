@@ -14,6 +14,24 @@ in
     
     programs.alacritty = {
       enable = true;
+      settings = {
+        window = {
+          decorations = "None";
+          padding.x = 3;
+          padding.y = 3;
+          opacity = 0.7;
+          blur = true;
+        };
+
+        scrolling = {
+          history = 100000;
+        };
+
+        font = {
+          size = 18.0;
+          builtin_box_drawing = false;
+        };
+      };
     };
 
   };

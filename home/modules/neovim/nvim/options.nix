@@ -18,8 +18,8 @@ in
 
       #   scrolloff = 25;
 
-        tabstop = 4;
-        shiftwidth = 4;
+        tabstop = 2;
+        shiftwidth = 2;
       #   autoindent = true;
         expandtab = true;
 

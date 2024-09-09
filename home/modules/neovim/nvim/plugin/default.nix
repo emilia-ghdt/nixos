@@ -14,7 +14,7 @@ in
 
   config = lib.mkIf cfg.enable {
     programs.nixvim.plugins = {
-    #   sleuth.enable = true;
+      sleuth.enable = true;
       comment.enable = true;
       otter.enable = true;
     #   indent-blankline.enable = true;
