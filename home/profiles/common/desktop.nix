@@ -36,7 +36,7 @@
     jellyfin-ffmpeg # transcoding
 
     # Audio
-    friture # spectrogram
+    stableRelease.friture # spectrogram
     audacity # audio recording
 
     # Image

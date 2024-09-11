@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  imports = [ ../modules ./common/convertible.nix ];
+  imports = [ ../modules ./common/convertible.nix ./common/gaming.nix ];
 
   siren.programs = {
     hyprland.monitors = [

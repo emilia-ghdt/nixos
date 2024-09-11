@@ -11,6 +11,14 @@ in
   config = mkIf cfg.enable {
     programs.ssh = {
       enable = true;
+      
+      matchBlocks = {
+        "git.fachschaft.info" = {
+          identityFile = "~/.ssh/fs_gitlab";
+          user = "git";
+          port = 10022;
+        };
+      };
 
       matchBlocks = {
         "github.com" = {
