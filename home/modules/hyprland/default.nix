@@ -50,7 +50,7 @@ in
         "$terminal" = cfg.terminal;
         "$fileManager" = "${pkgs.yazi}/bin/yazi";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
-
+        "$brightness" = "${pkgs.brightnessctl}/bin/brightnessctl";
 
         #################
         ### AUTOSTART ###
@@ -105,7 +105,7 @@ in
         # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
         master = {
             new_status = "slave";
-            orientation = "right";
+            orientation = "left";
             smart_resizing = "false";
         };
 
@@ -249,12 +249,30 @@ in
           # Scroll through existing workspaces with mainMod + scroll
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
+
+          ", XF86Audio, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
 
         bindm = [
           # Move/resize windows with mainMod + LMB/RMB and dragging
           "$mainMod, mouse:272, movewindow"
           "$mainMod, mouse:273, resizewindow"
+        ];
+
+        bindel = [
+          # Audio volume
+          ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+
+          # Brightness
+          ", XF86MonBrightnessUp, exec, $brightness set 17+"
+          ", XF86MonBrightnessDown, exec, $brightness set 17-"
+        ];
+
+        bindl = [
+          # Audio mute
+          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         ];
 
         ##############################

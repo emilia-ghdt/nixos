@@ -14,6 +14,8 @@
     wireguard-tools
     mozwire
     netbird
+
+    python3
   ];
 
   nixpkgs = {

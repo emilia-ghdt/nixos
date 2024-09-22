@@ -11,8 +11,9 @@ in
       isNormalUser = true;
       description = "Emilia Groß-Hardt";
       shell = pkgs.fish;
-      extraGroups = [ "networkmanager" "wheel" "dialout" ]
-      ++ lib.optionals config.siren.wayland.enable [ "audio" "video" ];
+      extraGroups = [ "networkmanager" "wheel" ]
+	  ++ lib.optionals config.siren.wayland.enable [ "audio" "video" ]
+	  ++ lib.optionals config.siren.udev.enable [ "plugdev" "dialout" ];
 	initialPassword = "1";
     };
   };

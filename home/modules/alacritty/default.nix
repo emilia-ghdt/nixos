@@ -29,7 +29,7 @@ in
 
         font = {
           size = 18.0;
-          builtin_box_drawing = false;
+          builtin_box_drawing = true;
         };
       };
     };

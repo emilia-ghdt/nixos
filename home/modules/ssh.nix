@@ -44,6 +44,14 @@ in
           port = 21449;
         };
       };
+
+      matchBlocks = {
+        "git.cs.uni-bonn.de" = {
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "git";
+          port = 22;
+        };
+      };
     };
   };
 }

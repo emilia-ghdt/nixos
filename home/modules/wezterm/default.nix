@@ -13,7 +13,7 @@ in
     
     programs.wezterm = {
       enable = true;
-      package = pkgs.stableRelease.wezterm;
+      package = pkgs.wezterm;
 
       # TODO: interpolate with color theme
       extraConfig = builtins.readFile ./settings.lua;

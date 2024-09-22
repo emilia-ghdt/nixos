@@ -5,10 +5,15 @@ let
 in
 {
   options.siren.fonts = {
-    enable = mkEnableOption "git";
+    enable = mkEnableOption "fonts";
   };
 
   config = mkIf cfg.enable {
+    programs.alacritty.settings.font.normal = {
+      family = "FiraCode Nerd Font Mono";
+      style = "Regular";
+    };
+
     fonts.fontconfig.defaultFonts = {
       emoji = [
 

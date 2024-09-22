@@ -14,6 +14,7 @@
     git.enable = true;
     vscode.enable = true;
   };
+  siren.fonts.enable = true;
 
   home.packages = with pkgs; [
     # Browser
