@@ -9,7 +9,7 @@
     sway.enable = true;
     direnv.enable = true;
     neovim.enable = true;
-    rust.enable = true;
+    # rust.enable = true;
     ssh.enable = true;
     git.enable = true;
     vscode.enable = true;
@@ -52,7 +52,6 @@
     kicad
 
     # Development
-    cmake
     arduino-ide
     adafruit-nrfutil
 
