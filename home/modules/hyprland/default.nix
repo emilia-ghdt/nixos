@@ -265,8 +265,8 @@ in
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 
           # Brightness
-          ", XF86MonBrightnessUp, exec, $brightness set 17+"
-          ", XF86MonBrightnessDown, exec, $brightness set 17-"
+          ", XF86MonBrightnessUp, exec, $brightness set 51+"
+          ", XF86MonBrightnessDown, exec, $brightness set 51-"
         ];
 
         bindl = [

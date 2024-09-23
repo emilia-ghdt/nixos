@@ -5,7 +5,7 @@
 
   sops.age.keyFile = "/home/emilia/.config/sops/age/keys.txt";
 
-  sops.secrets.mullvad-id = {
+  sops.secrets.mullvad_id = {
     owner = "emilia";
   };
 }
