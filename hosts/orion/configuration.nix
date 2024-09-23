@@ -2,7 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
-    (import ../../disko/disko.nix { device = "/dev/nvme1n1"; })
+    (import ../../disko/desktop.nix { device = "/dev/nvme1n1"; })
   ];
 
   # Modules
