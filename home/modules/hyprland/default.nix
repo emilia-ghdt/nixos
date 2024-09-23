@@ -203,6 +203,7 @@ in
           "$mainMod, M, exit,"
           "$mainMod, E, exec, $fileManager"
           "$mainMod, V, togglefloating,"
+          "$mainMod, F, fullscreen,"
           "$mainMod, R, exec, $menu"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"

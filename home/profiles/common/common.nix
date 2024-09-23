@@ -5,6 +5,8 @@
 
   # TODO shell
   home.packages = with pkgs; [
+    sops
+
     # Passwords
     rbw # bitwarden cli
     xkcdpass # TODO: rewrite in Rust
@@ -14,8 +16,6 @@
     wireguard-tools
     mozwire
     netbird
-
-    python3
   ];
 
   nixpkgs = {
