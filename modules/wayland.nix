@@ -21,17 +21,17 @@ in
         enable = true;
         wlr.enable = true;
         xdgOpenUsePortal = true;
-        configPackages = with pkgs; [ xdg-desktop-portal-hyprland xdg-desktop-portal-wlr ]
-          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ];
-        extraPortals = with pkgs; [ xdg-desktop-portal-hyprland xdg-desktop-portal-wlr ]
-          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ];
+        configPackages = with pkgs; [ xdg-desktop-portal-wlr ]
+          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
+          ++ lib.optionals (config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
+        extraPortals = with pkgs; [ xdg-desktop-portal-wlr ]
+          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
+          ++ lib.optionals (config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
       };
     };
 
     security = {
       # Allow swaylock to unlock the computer for us
-      pam.services.swaylock.text = "auth include login";
-      pam.services.hyprlock = {};
       polkit.enable = true;
       rtkit.enable = true;
     };
@@ -41,7 +41,5 @@ in
     ];
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    programs.light.enable = true;
   };
 }

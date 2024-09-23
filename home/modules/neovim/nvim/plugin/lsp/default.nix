@@ -96,7 +96,7 @@ in
         extra = [
           { mode = "n"; key = "<leader>r"; action.__raw = "vim.lsp.buf.rename"; }
           { mode = "n"; key = "<leader>a"; action.__raw = "vim.lsp.buf.code_action"; }
-    #       { mode = "n"; key = "<leader>di"; action.__raw = "vim.diagnostic.open_float"; }
+          { mode = "n"; key = "<leader>di"; action.__raw = "vim.diagnostic.open_float"; }
     #       { mode = "n"; key = "<leader>dv"; action.__raw = "require('telescope.builtin').diagnostics"; }
 
           { mode = "n"; key = "gd"; action.__raw = "vim.lsp.buf.definition"; }
