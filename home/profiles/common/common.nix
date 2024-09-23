@@ -3,6 +3,15 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  siren.programs = {
+    shell.enable = true;
+    direnv.enable = true;
+    neovim.enable = true;
+    # rust.enable = true;
+    ssh.enable = true;
+    git.enable = true;
+  };
+
   # TODO shell
   home.packages = with pkgs; [
     sops

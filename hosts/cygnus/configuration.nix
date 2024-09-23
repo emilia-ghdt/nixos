@@ -11,66 +11,33 @@
       (import ../../disko/server.nix { device = "/dev/vda"; })
     ];
 
-  users.users.server = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-    initialPassword = "tea_scissors_flannel";
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGkNqsh2GgeSKML7hZKkXlGDLXHEdXYQw+CHK/Emilia orion/cassiopeia"
-    ];
+  siren = {
+    common.enable = true;
+    users.emilia.enable = true;
+    docker.enable = true;
+    openssh.enable = true;
   };
 
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
+  siren.home-manager = {
+    enable = true;
+    username = "emilia";
+    profile = "cygnus";
+    stateVersion = "24.05"; # Don't change!
+  };
 
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = false;
+  virtualisation.docker.storageDriver = "btrfs";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
 
   networking.hostName = "cygnus"; # Define your hostname.
-
-  # Set your time zone.
-  time.timeZone = "Europe/Berlin";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "de";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    ripgrep
-    bat
-  ];
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ ];

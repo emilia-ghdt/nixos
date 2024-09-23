@@ -31,6 +31,8 @@
     stateVersion = "24.05"; # Please read the comment before changing.
   };
 
+  virtualisation.docker.storageDriver = "btrfs";
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

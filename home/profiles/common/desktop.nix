@@ -4,14 +4,9 @@
 
   siren.programs = {
     alacritty.enable = true;
-    shell.enable = true;
     hyprland.enable = true;
     sway.enable = true;
-    direnv.enable = true;
-    neovim.enable = true;
     # rust.enable = true;
-    ssh.enable = true;
-    git.enable = true;
     vscode.enable = true;
   };
   siren.fonts.enable = true;
