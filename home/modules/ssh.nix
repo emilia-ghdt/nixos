@@ -18,37 +18,35 @@ in
           user = "git";
           port = 10022;
         };
-      };
-
-      matchBlocks = {
+      
         "github.com" = {
           identityFile = "~/.ssh/emilia_ed25519";
           user = "git";
           port = 22;
         };
-      };
-
-      matchBlocks = {
+      
         "gitlab.ptyonic.dev" = {
           identityFile = "~/.ssh/emilia_ed25519";
           user = "git";
           port = 22;
         };
-      };
 
-      matchBlocks = {
         "contabo" = {
           hostname = "ptyonic.dev";
           identityFile = "~/.ssh/emilia_ed25519";
           user = "root";
           port = 21449;
         };
-      };
 
-      matchBlocks = {
         "git.cs.uni-bonn.de" = {
           identityFile = "~/.ssh/emilia_ed25519";
           user = "git";
+          port = 22;
+        };
+
+        "nyriad" = {
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
           port = 22;
         };
       };
