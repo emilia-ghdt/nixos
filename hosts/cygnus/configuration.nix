@@ -32,6 +32,37 @@
 
   networking.hostName = "cygnus"; # Define your hostname.
 
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "emilia.ghdt+acme@gmail.com";
+    certs."nyriad.de" = {
+      domain = "*.nyriad.de";
+      extraDomainNames = [
+        "nyriad.de"
+      ];
+      dnsProvider = "netcup";
+      environmentFile = "/run/secrets/netcup-api";
+      group = "nginx";
+    };
+  };
+
+  sops.secrets.netcup-api = {
+    mode = "0040";
+    group = "acme";
+  };
+
+  services.nginx.enable = true;
+  services.nginx.virtualHosts."portainer.nyriad.de" = {
+    forceSSL = true;
+
+    sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
+    sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
+
+    locations."/" = {
+      proxyPass = "https://localhost:9443";
+    };
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -40,7 +71,7 @@
   # services.printing.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ ];
+  networking.firewall.allowedTCPPorts = [ 443 80 ];
   networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

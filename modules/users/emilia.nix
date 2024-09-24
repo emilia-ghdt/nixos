@@ -18,6 +18,7 @@ in
       initialPassword = "1";
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGkNqsh2GgeSKML7hZKkXlGDLXHEdXYQw+CHK/Emilia orion/cassiopeia"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG068VL02MKo28ZtJmInCWizZ1AKU+zYFxSI1l+WgPyL nix-on-droid@localhost"
       ];
     };
   };
