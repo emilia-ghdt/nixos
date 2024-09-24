@@ -41,12 +41,19 @@
         "nyriad.de"
       ];
       dnsProvider = "netcup";
-      environmentFile = "/run/secrets/netcup-api";
+      credentialFiles = {
+        "NETCUP_CUSTOMER_NUMBER_FILE" = "/run/secrets/netcup-api/customer-number";
+        "NETCUP_API_KEY_FILE" = "/run/secrets/netcup-api/api-key";
+        "NETCUP_API_PASSWORD_FILE" = "/run/secrets/netcup-api/api-password";
+        "NETCUP_PROPAGATION_TIMEOUT_FILE" = "${pkgs.writeText "netcup-propagation-timeout" ''
+          300
+        ''}";
+      };
       group = "nginx";
     };
   };
 
-  sops.secrets.netcup-api = {
+  sops.secrets.netcup-api."*" = {
     mode = "0040";
     group = "acme";
   };
