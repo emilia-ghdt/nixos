@@ -53,9 +53,12 @@
     };
   };
 
-  sops.secrets.netcup-api."*" = {
-    mode = "0040";
-    group = "acme";
+  sops.secrets = let 
+    secretConf = { mode = "0040"; group = "acme"; };
+  in {
+    "netcup-api/customer-number" = secretConf;
+    "netcup-api/api-key" = secretConf;
+    "netcup-api/api-password" = secretConf;
   };
 
   services.nginx.enable = true;
