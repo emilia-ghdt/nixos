@@ -45,6 +45,7 @@ in
         };
 
         "nyriad" = {
+          hostname = "nyriad.de";
           identityFile = "~/.ssh/emilia_ed25519";
           user = "emilia";
           port = 22;
