@@ -73,6 +73,15 @@
     };
   };
 
+  users.users.minecraft = {
+    isSystemUser = true;
+    uid = 25565;
+    group = "minecraft";
+  };
+  users.groups.minecraft = {
+    gid = 25565;
+  };
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
