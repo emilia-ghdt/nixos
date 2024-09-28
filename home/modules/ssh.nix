@@ -11,6 +11,7 @@ in
   config = mkIf cfg.enable {
     programs.ssh = {
       enable = true;
+      package = pkgs.openssh_hpn;
       
       matchBlocks = {
         "git.fachschaft.info" = {
