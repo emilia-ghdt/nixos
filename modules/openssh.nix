@@ -6,10 +6,10 @@ in
     enable = lib.mkEnableOption "openssh config";
   };
   config = lib.mkIf cfg.enable {
+    programs.ssh.package = pkgs.openssh_hpn;
+
     services.openssh = {
       enable = true;
-
-      sftpServerExecutable = "${pkgs.openssh_hpn}/bin/sftp";
 
       settings = {
         PasswordAuthentication = false;
