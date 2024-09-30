@@ -24,6 +24,7 @@ in
       fzf
       zoxide
       eza
+      p7zip
     ] ++ [ flake-self.inputs.nix-autobahn ];
 
     # Shells
