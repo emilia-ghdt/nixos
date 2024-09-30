@@ -25,6 +25,7 @@ in
       zoxide
       eza
       p7zip
+      speedtest-rs
     ] ++ [ flake-self.inputs.nix-autobahn ];
 
     # Shells
