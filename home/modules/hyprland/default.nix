@@ -285,8 +285,7 @@ in
         # windowrule = float, ^(kitty)$
 
         # Example windowrule v2
-        # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
-
+        windowrulev2 = "monitor eDP-1,class:^pcbnew$";
       };
     };
 
