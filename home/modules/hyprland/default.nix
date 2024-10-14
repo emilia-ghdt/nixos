@@ -49,6 +49,7 @@ in
         # Set programs that you use
         "$terminal" = cfg.terminal;
         "$fileManager" = "${pkgs.yazi}/bin/yazi";
+        "$locker" = "${pkgs.swaylock}/bin/swaylock";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$brightness" = "${pkgs.brightnessctl}/bin/brightnessctl";
 
@@ -207,6 +208,7 @@ in
           "$mainMod, R, exec, $menu"
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
+          "$mainMod, L, exec, $locker"
 
           # Move focus with mainMod + arrow keys
           "$mainMod, left, movefocus, l"
