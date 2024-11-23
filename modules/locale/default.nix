@@ -24,8 +24,8 @@ in
 
     # Configure keymap
     services.xserver.xkb = {
-      layout = "de";
-      variant = "";
+      layout = "us";
+      variant = "altgr-intl";
     };
 
     # Configure console keymap

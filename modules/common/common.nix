@@ -34,6 +34,8 @@ in
       fish.enable = true;
     };
 
+    environment.variables.EDITOR = "nvim";
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 

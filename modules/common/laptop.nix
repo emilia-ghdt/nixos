@@ -8,7 +8,7 @@ in
     siren = {
       desktop.enable = true;
       # TODO: autocpufreq
-      tlp.enable = true;
+      autocpufreq.enable = true;
     };
     
     hardware.bluetooth = {

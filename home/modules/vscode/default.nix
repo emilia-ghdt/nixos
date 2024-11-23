@@ -82,6 +82,7 @@ in
         };
 
         # latex workshop for fs protocols
+        #latex-workshop.latex.external.build.args
         "latex-workshop" = {
           "latex.recipes" = [
             {
@@ -96,11 +97,14 @@ in
               "name" = "protokoll";
               "command" = "pdflatex";
               "args" = [
-                "-halt-on-error"
+                "-f"
                 "-output-directory=%OUTDIR%"
                 "%DOC%"
               ];
             }
+          ];
+          "latex.external.build.args" = [
+            "-f"
           ];
           "synctex" = {
             "synctexjs.enabled" = true;

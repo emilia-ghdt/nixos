@@ -51,6 +51,13 @@ in
           user = "emilia";
           port = 22;
         };
+
+        "inform" = {
+          hostname = "inform.informatik.uni-bonn.de";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
+          port = 22;
+        };
       };
     };
   };

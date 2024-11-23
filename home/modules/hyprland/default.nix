@@ -52,6 +52,8 @@ in
         "$locker" = "${pkgs.swaylock}/bin/swaylock";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$brightness" = "${pkgs.brightnessctl}/bin/brightnessctl";
+        "$audio" = "${pkgs.wireplumber}/bin/wpctl";
+        "$media" = "${pkgs.playerctl}/bin/playerctl";
 
         #################
         ### AUTOSTART ###
@@ -169,8 +171,8 @@ in
 
         # https://wiki.hyprland.org/Configuring/Variables/#input
         input = {
-            kb_layout = "de";
-            kb_variant = "";
+            kb_layout = "us";
+            kb_variant = "altgr-intl";
             kb_model = "";
             kb_options = "";
             kb_rules = "";
@@ -262,8 +264,8 @@ in
 
         bindel = [
           # Audio volume
-          ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
-          ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+          ", XF86AudioRaiseVolume, exec, $audio set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
+          ", XF86AudioLowerVolume, exec, $audio set-volume @DEFAULT_AUDIO_SINK@ 5%-"
 
           # Brightness
           ", XF86MonBrightnessUp, exec, $brightness set 51+"
@@ -272,8 +274,16 @@ in
 
         bindl = [
           # Audio mute
-          ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+          ", XF86AudioMute, exec, $audio set-mute @DEFAULT_AUDIO_SINK@ toggle"
+          ", XF86AudioMicMute, exec, $audio set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+
+          # Media keys
+          ", XF86AudioPlayPause, exec, $media play-pause"
+          ", XF86AudioPlay, exec, $media play-pause"
+          ", XF86AudioPause, exec, $media play-pause"
+          ", XF86AudioStop, exec, $media stop"
+          ", XF86AudioNext, exec, $media next"
+          ", XF86AudioPrev, exec, $media prev"
         ];
 
         ##############################
