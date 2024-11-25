@@ -13,23 +13,6 @@ in
     # printing and others.
     services.dbus.enable = true;
 
-    xdg = {
-      mime.enable = true;
-      icons.enable = true;
-
-      portal = {
-        enable = true;
-        wlr.enable = true;
-        xdgOpenUsePortal = true;
-        configPackages = with pkgs; [ xdg-desktop-portal-wlr ]
-          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
-          ++ lib.optionals (config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
-        extraPortals = with pkgs; [ xdg-desktop-portal-wlr ]
-          ++ lib.optionals (config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
-          ++ lib.optionals (config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
-      };
-    };
-
     security = {
       # Allow swaylock to unlock the computer for us
       polkit.enable = true;

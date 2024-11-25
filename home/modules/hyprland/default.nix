@@ -283,7 +283,7 @@ in
           ", XF86AudioPause, exec, $media play-pause"
           ", XF86AudioStop, exec, $media stop"
           ", XF86AudioNext, exec, $media next"
-          ", XF86AudioPrev, exec, $media prev"
+          ", XF86AudioPrev, exec, $media previous"
         ];
 
         ##############################
