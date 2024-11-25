@@ -14,7 +14,7 @@
     # xserver.enable = true;
     udev.enable = true;
     nvidia.enable = true;
-    impermanence.enable = true;
+    # impermanence.enable = true;
   };
 
   hardware.bluetooth = {
