@@ -62,14 +62,34 @@
   };
 
   services.nginx.enable = true;
-  services.nginx.virtualHosts."portainer.nyriad.de" = {
-    forceSSL = true;
+  services.nginx.virtualHosts = {
+    "portainer.nyriad.de" = {
+      forceSSL = true;
 
-    sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
-    sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
+      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
+      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
 
-    locations."/" = {
-      proxyPass = "https://localhost:9443";
+      locations."/" = {
+        proxyPass = "https://localhost:9443";
+      };
+    };
+    
+    "nyriad.de" = {
+      serverAliases = [ "*.nyriad.de" ];
+
+      addSSL = true;
+
+      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
+      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
+
+      locations = {
+        "*" = {
+          return = "404";
+        };
+        "/" = {
+          return = "404";
+        };
+      };
     };
   };
 
@@ -118,5 +138,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
