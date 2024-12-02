@@ -45,6 +45,12 @@ in
           port = 22;
         };
 
+        "gitlab.informatik.uni-bonn.de" = {
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "git";
+          port = 22;
+        };
+
         "nyriad" = {
           hostname = "nyriad.de";
           identityFile = "~/.ssh/emilia_ed25519";
