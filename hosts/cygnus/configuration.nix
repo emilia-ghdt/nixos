@@ -16,6 +16,15 @@
     users.emilia.enable = true;
     docker.enable = true;
     openssh.enable = true;
+    librespeed = {
+      enable = true;
+      enableNginx = true;
+    };
+    portainer = {
+      enable = true;
+      enableNginx = true;
+    };
+    domain = "nyriad.de";
   };
 
   siren.home-manager = {
@@ -31,67 +40,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "cygnus"; # Define your hostname.
-
-  security.acme = {
-    acceptTerms = true;
-    defaults.email = "emilia.ghdt+acme@gmail.com";
-    certs."nyriad.de" = {
-      domain = "*.nyriad.de";
-      extraDomainNames = [
-        "nyriad.de"
-      ];
-      dnsProvider = "netcup";
-      credentialFiles = {
-        "NETCUP_CUSTOMER_NUMBER_FILE" = "/run/secrets/netcup-api/customer-number";
-        "NETCUP_API_KEY_FILE" = "/run/secrets/netcup-api/api-key";
-        "NETCUP_API_PASSWORD_FILE" = "/run/secrets/netcup-api/api-password";
-        "NETCUP_PROPAGATION_TIMEOUT_FILE" = "${pkgs.writeText "netcup-propagation-timeout" ''
-          300
-        ''}";
-      };
-      group = "nginx";
-    };
-  };
-
-  sops.secrets = let 
-    secretConf = { mode = "0040"; group = "acme"; };
-  in {
-    "netcup-api/customer-number" = secretConf;
-    "netcup-api/api-key" = secretConf;
-    "netcup-api/api-password" = secretConf;
-  };
-
-  services.nginx.enable = true;
-  services.nginx.virtualHosts = {
-    "portainer.nyriad.de" = {
-      forceSSL = true;
-
-      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
-      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
-
-      locations."/" = {
-        proxyPass = "https://localhost:9443";
-      };
-    };
-    
-    "nyriad.de" = {
-      serverAliases = [ "*.nyriad.de" ];
-
-      addSSL = true;
-
-      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
-      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
-
-      locations = {
-        "*" = {
-          return = "404";
-        };
-        "/" = {
-          return = "404";
-        };
-      };
-    };
-  };
 
   users.users.minecraft = {
     isSystemUser = true;
