@@ -16,6 +16,7 @@
     openshut.keyboardInputPath = "/dev/input/event8";
     home-assistant.enable = true;
     nvidia.enable = true;
+    fingerprint.enable = true;
   };
 
   siren.networking = {
