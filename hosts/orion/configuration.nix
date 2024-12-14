@@ -14,7 +14,9 @@
     # xserver.enable = true;
     udev.enable = true;
     nvidia.enable = true;
+    netbird.enable = true;
     # impermanence.enable = true;
+    openssh.enable = true;
   };
 
   hardware.bluetooth = {
