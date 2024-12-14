@@ -17,6 +17,7 @@
     home-assistant.enable = true;
     nvidia.enable = true;
     fingerprint.enable = true;
+    netbird.enable = true;
   };
 
   siren.networking = {
