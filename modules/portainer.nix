@@ -14,12 +14,11 @@ in
 
   };
   
-  config = lib.mkIf cfg.enable (lib.mkMerge [
-    {
+  config =
       # TODO
-    }
     lib.mkIf cfg.enableNginx {
-      services.nginx.enable = true;
+      siren.nginx.enable = true;
+
       services.nginx.virtualHosts = {
         "portainer.${config.siren.domain}" = {
           forceSSL = true;
@@ -32,7 +31,7 @@ in
           };
         };
       };
-    }
-  ]
-  );
+    };
+  
+  
 }

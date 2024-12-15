@@ -43,7 +43,7 @@ in
     }
 
     (lib.mkIf cfg.enableNginx {
-      # siren.nginx.enable = true;
+      siren.nginx.enable = true;
 
       services.nginx.virtualHosts."${cfg.domain}" = {
         forceSSL = true;

@@ -20,6 +20,7 @@
       enable = true;
       enableNginx = true;
     };
+    nginx.enable = true;
     portainer = {
       enable = true;
       enableNginx = true;
