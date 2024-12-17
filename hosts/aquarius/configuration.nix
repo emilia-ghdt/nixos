@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      (import ../../disko/cygnus.nix { device = "/dev/vda"; })
+      (import ../../disko/aquarius.nix { device = "/dev/vda"; })
     ];
 
   siren = {
@@ -16,40 +16,60 @@
     users.emilia.enable = true;
     docker.enable = true;
     openssh.enable = true;
-    librespeed = {
-      enable = true;
-      enableNginx = true;
-    };
-    nginx.enable = true;
-    portainer = {
-      enable = true;
-      enableNginx = true;
-    };
-    domain = "nyriad.de";
   };
 
   siren.home-manager = {
     enable = true;
     username = "emilia";
-    profile = "cygnus";
-    stateVersion = "24.05"; # Don't change!
+    profile = "aquarius";
+    stateVersion = "24.11"; # Don't change!
   };
-
-  virtualisation.docker.storageDriver = "btrfs";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "cygnus"; # Define your hostname.
+  networking.hostName = "aquarius"; # Define your hostname.
 
-  users.users.minecraft = {
-    isSystemUser = true;
-    uid = 25565;
-    group = "minecraft";
+  services.nginx.enable = true;
+  services.nginx.virtualHosts = {
+    "portainer.nyriad.de" = {
+      forceSSL = true;
+
+      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
+      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
+
+      locations."/" = {
+        proxyPass = "https://localhost:9443";
+      };
+    };
+    
+    "nyriad.de" = {
+      serverAliases = [ "*.nyriad.de" ];
+
+      addSSL = true;
+
+      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
+      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
+
+      locations = {
+        "*" = {
+          return = "404";
+        };
+        "/" = {
+          return = "404";
+        };
+      };
+    };
   };
-  users.groups.minecraft = {
-    gid = 25565;
-  };
+
+  # users.users.minecraft = {
+  #   isSystemUser = true;
+  #   uid = 25565;
+  #   group = "minecraft";
+  # };
+  # users.groups.minecraft = {
+  #   gid = 25565;
+  # };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -59,8 +79,8 @@
   # services.printing.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 443 80 ];
-  networking.firewall.allowedUDPPorts = [ ];
+  # networking.firewall.allowedTCPPorts = [ 443 80 ];
+  # networking.firewall.allowedUDPPorts = [ ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
