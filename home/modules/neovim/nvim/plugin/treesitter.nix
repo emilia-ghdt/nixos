@@ -7,11 +7,11 @@ in
       enable = true;
       settings = {
         highlight.enable = true;
+        indent.enable = true;
       };
       # nixGrammars = false;
       # nixvimInjections = true;
       # parserInstallDir = "${config.home.homeDirectory}/.vim/treesitter";
-      indent = true;
       # incrementalSelection = {
       #   enable = true;
       #   keymaps = {

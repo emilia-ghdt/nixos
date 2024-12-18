@@ -58,8 +58,31 @@ in
           port = 22;
         };
 
+        "loginstud" = {
+          hostname = "login-stud.informatik.uni-bonn.de";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "grosshardtj0";
+          port = 22;
+        };
+
         "inform" = {
           hostname = "inform.informatik.uni-bonn.de";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
+          port = 22;
+        };
+
+        "inform_proxied" = {
+          hostname = "inform.informatik.uni-bonn.de";
+          proxyJump = "loginstud";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
+          port = 22;
+        };
+        
+        "teq" = {
+          hostname = "tequila";
+          proxyJump = "inform";
           identityFile = "~/.ssh/emilia_ed25519";
           user = "emilia";
           port = 22;

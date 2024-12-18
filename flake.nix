@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -52,6 +52,11 @@
     lua-ls-cc-tweaked = {
       url = "github:nvim-computercraft/lua-ls-cc-tweaked";
       flake = false;
+    };
+
+    kmonad = {
+      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     plugin-lazydev-nvim.url = "github:folke/lazydev.nvim";
@@ -110,6 +115,7 @@
               inputs.sops-nix.nixosModules.sops
               inputs.disko.nixosModules.default
               inputs.impermanence.nixosModules.impermanence
+              inputs.kmonad.nixosModules.default
             ];
           };
         })

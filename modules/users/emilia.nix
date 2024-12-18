@@ -14,6 +14,7 @@ in
       extraGroups = [ "networkmanager" "wheel" ]
 	  ++ lib.optionals config.siren.wayland.enable [ "audio" "video" ]
 	  ++ lib.optionals config.siren.udev.enable [ "plugdev" "dialout" ]
+	  ++ lib.optionals config.siren.kmonad.enable [ "input" "uinput" ]
           ++ lib.optionals config.siren.docker.enable [ "docker" ];
       initialPassword = "1";
       openssh.authorizedKeys.keys = [
