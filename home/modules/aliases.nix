@@ -10,7 +10,10 @@ in
 
   config = mkIf cfg.enable {
     home.shellAliases = {
-      
+      ns = "nix-shell --run fish -p";
+      ls = "${pkgs.eza}/bin/eza";
+      ll = "${pkgs.eza}/bin/eza -la";
+      la = "${pkgs.eza}/bin/eza -a";
     };
   };
 }

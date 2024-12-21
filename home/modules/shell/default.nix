@@ -8,6 +8,7 @@ in
   };
 
   config = mkIf cfg.enable {
+    programs.fish.enable = true;
     programs.starship = {
       enable = true;
       settings = {};

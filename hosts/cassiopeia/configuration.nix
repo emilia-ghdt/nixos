@@ -4,6 +4,9 @@
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
 
+  services.iperf3.enable = true;
+  services.iperf3.openFirewall = true;
+  
   # Modules
   siren = {
     users.emilia.enable = true;

@@ -3,6 +3,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  siren = {
+    aliases.enable = true;
+  };
   siren.programs = {
     shell.enable = true;
     direnv.enable = true;

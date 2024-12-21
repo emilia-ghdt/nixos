@@ -5,7 +5,7 @@ in
   options.siren.fonts.enable = lib.mkEnableOption "fonts";
 
   config = lib.mkIf cfg.enable {
-    fonts.packages = with pkgs.nerd-fonts; [
+    fonts.packages = (with pkgs.nerd-fonts; [
       symbols-only
       bitstream-vera-sans-mono
       caskaydia-cove
@@ -28,7 +28,11 @@ in
       sauce-code-pro
       ubuntu-mono
       victor-mono
-    ];
+    ]) ++ (with pkgs; [
+      noto-fonts-monochrome-emoji
+      noto-fonts-color-emoji
+      noto-fonts
+    ]);
 
     fonts.fontDir.enable = true;
     fonts.fontconfig.enable = true;
