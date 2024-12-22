@@ -21,6 +21,7 @@
       enable = true;
     };
     librespeed.enable = true;
+    netbird.enable = true;
   };
 
   siren.home-manager = {
@@ -30,25 +31,21 @@
     stateVersion = "24.11"; # Don't change!
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    zfsSupport = true;
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+    mirroredBoots = [
+      { devices = [ "nodev"]; path = "/boot"; }
+    ];
+  };
+  boot.zfs.extraPools = [ "vault" ];
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "aquarius"; # Define your hostname.
-
-  services.nginx.enable = true;
-
-  # users.users.minecraft = {
-  #   isSystemUser = true;
-  #   uid = 25565;
-  #   group = "minecraft";
-  # };
-  # users.groups.minecraft = {
-  #   gid = 25565;
-  # };
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostId = "77a933a4";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -56,13 +53,6 @@
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 443 80 ];
   # networking.firewall.allowedUDPPorts = [ ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -81,5 +71,5 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

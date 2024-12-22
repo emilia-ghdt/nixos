@@ -27,7 +27,6 @@
     # Network
     wireguard-tools
     mozwire
-    netbird
   ];
 
   nixpkgs = {
