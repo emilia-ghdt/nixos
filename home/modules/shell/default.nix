@@ -8,6 +8,9 @@ in
   };
 
   config = mkIf cfg.enable {
+    home.sessionVariables = {
+      "PAGER" = "${pkgs.bat}/bin/bat";
+    };
     programs.fish.enable = true;
     programs.starship = {
       enable = true;
