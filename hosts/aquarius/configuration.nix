@@ -15,7 +15,12 @@
     common.enable = true;
     users.emilia.enable = true;
     docker.enable = true;
+    portainer.enable = true;
     openssh.enable = true;
+    jellyfin = {
+      enable = true;
+    };
+    librespeed.enable = true;
   };
 
   siren.home-manager = {
@@ -31,36 +36,6 @@
   networking.hostName = "aquarius"; # Define your hostname.
 
   services.nginx.enable = true;
-  services.nginx.virtualHosts = {
-    "portainer.nyriad.de" = {
-      forceSSL = true;
-
-      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
-      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
-
-      locations."/" = {
-        proxyPass = "https://localhost:9443";
-      };
-    };
-    
-    "nyriad.de" = {
-      serverAliases = [ "*.nyriad.de" ];
-
-      addSSL = true;
-
-      sslCertificate = "/var/lib/acme/nyriad.de/cert.pem";
-      sslCertificateKey = "/var/lib/acme/nyriad.de/key.pem";
-
-      locations = {
-        "*" = {
-          return = "404";
-        };
-        "/" = {
-          return = "404";
-        };
-      };
-    };
-  };
 
   # users.users.minecraft = {
   #   isSystemUser = true;
