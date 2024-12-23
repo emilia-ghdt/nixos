@@ -6,6 +6,12 @@ in
     enable = lib.mkEnableOption "activate jellyfin";
     enableNginx = lib.mkEnableOption "activate nginx proxy";
 
+    openFirewall = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "open firewall for jellyfin";
+    }; 
+
     domain = lib.mkOption {
       type = lib.types.str;
       default = "kino.nyriad.de"; #${config.siren.domain}";

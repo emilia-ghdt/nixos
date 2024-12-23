@@ -19,6 +19,19 @@
     openssh.enable = true;
     jellyfin = {
       enable = true;
+      # enableNginx = true;
+    };
+    jellyseerr = {
+      enable = true;
+      # enableNginx = true;
+    };
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    radarr = {
+      enable = true;
+      openFirewall = true;
     };
     librespeed.enable = true;
     netbird.enable = true;
