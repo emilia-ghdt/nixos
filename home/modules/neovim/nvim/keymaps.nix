@@ -87,9 +87,9 @@ in
         { mode = "n"; key = "<LEADER>ff"; action.__raw = "require('telescope.builtin').find_files"; options = { silent = true; desc = "[F]ind [F]iles"; }; }
         # { mode = "n"; key = "<LEADER>sh"; action.__raw = "require('telescope.builtin').help_tags"; options = { silent = true; desc = "[S]earch [H]elp"; }; }
         # { mode = "n"; key = "<LEADER>sw"; action.__raw = "require('telescope.builtin').grep_string"; options = { silent = true; desc = "[S]earch current [W]ord"; }; }
-        # { mode = "n"; key = "<LEADER>sg"; action.__raw = "require('telescope.builtin').live_grep"; options = { silent = true; desc = "[S]earch by [G]rep"; }; }
+        { mode = "n"; key = "<LEADER>sg"; action.__raw = "require('telescope.builtin').live_grep"; options = { silent = true; desc = "[S]earch by [G]rep"; }; }
         # { mode = "n"; key = "<LEADER>sd"; action.__raw = "require('telescope.builtin').diagnostics"; options = { silent = true; desc = "[S]earch [D]iagnostics"; }; }
-        # { mode = "n"; key = "<LEADER>ff"; action.__raw = "require('telescope.builtin').git_files"; options = { silent = true; desc = "[S]earch [F]iles tracked by git"; }; }
+        # { mode = "n"; key = "<LEADER>sf"; action.__raw = "require('telescope.builtin').git_files"; options = { silent = true; desc = "[S]earch [F]iles tracked by git"; }; }
 
         # { mode = "n"; key = "<LEADER>gw"; action.__raw = "function() require('telescope').extensions.git_worktree.git_worktrees() end"; options = { silent = true; desc = "[G]it [W]orktrees"; }; }
         # { mode = "n"; key = "<LEADER>gc"; action.__raw = "function() require('telescope').extensions.git_worktree.create_git_worktree() end"; options = { silent = true; desc = "[G]it [create] worktree"; }; }

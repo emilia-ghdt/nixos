@@ -26,7 +26,7 @@ in
     #         "--fallback-style=file:${config.home.homeDirectory}/.clang-format"
     #       ];
         };
-        java-language-server = {
+        java_language_server = {
           enable = true;
           filetypes = ["java"];
         };
@@ -36,7 +36,7 @@ in
     #     cssls.enable = true;
     #     pyright.enable = true;
         nixd.enable = true;
-        lua-ls = {
+        lua_ls = {
           enable = true;
           settings = {
     #         telemetry.enable = false;
@@ -49,7 +49,7 @@ in
     #     };
     #     slint-lsp.enable = true;
     #     zls.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           installRustc = false;
           installCargo = false;

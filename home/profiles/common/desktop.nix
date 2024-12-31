@@ -27,7 +27,7 @@
     zoom-us
 
     # Video
-    shotcut # video editor
+    stableRelease.shotcut # video editor
     obs-studio # video streaming
     jellyfin-ffmpeg # transcoding
 
@@ -51,15 +51,15 @@
     adafruit-nrfutil
 
     # 3D
-    bambu-studio # 3D printing
-    orca-slicer # slicer
+    stableRelease.bambu-studio # 3D printing
+    stableRelease.orca-slicer # slicer
     blender # 3D animation
     freecad # CAD
     openscad # scriptable CAD
 
     # Text
     artem # ASCII art
-    logseq # knowledge base, electron 27 is eol
+    logseq # knowledge base
     obsidian # knowledge base
 
     # Documents
