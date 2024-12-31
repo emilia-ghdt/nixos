@@ -27,16 +27,16 @@ in
 
       includes = [
         {
-          condition = "hasconfig:remote.*.url:github.com/**";
+          condition = "hasconfig:remote.*.url:git@github.com:*/**";
           contents = {
             user = {
-              name = "Emilia Groß-Hardt";
+              name = "Emilia";
               email = "<56568085+emilia-ghdt@users.noreply.github.com>";
             };
           };
         }
         {
-          condition = "hasconfig:remote.*.url:git.fachschaft.info/**";
+          condition = "hasconfig:remote.*.url:git@git.fachschaft.info:*/**";
           contents = {
             user = {
               name = "Emilia Groß-Hardt";
