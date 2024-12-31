@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 let cfg = config.siren.fonts;
 in
-{
+  {
   options.siren.fonts.enable = lib.mkEnableOption "fonts";
 
   config = lib.mkIf cfg.enable {
@@ -29,10 +29,11 @@ in
       ubuntu-mono
       victor-mono
     ]) ++ (with pkgs; [
-      noto-fonts-monochrome-emoji
-      noto-fonts-color-emoji
-      noto-fonts
-    ]);
+        noto-fonts-monochrome-emoji
+        noto-fonts-color-emoji
+        noto-fonts
+        noto-fonts-cjk-sans
+      ]);
 
     fonts.fontDir.enable = true;
     fonts.fontconfig.enable = true;
