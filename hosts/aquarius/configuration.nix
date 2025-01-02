@@ -19,6 +19,7 @@
     openssh.enable = true;
     jellyfin = {
       enable = true;
+      openFirewall = true;
       # enableNginx = true;
     };
     jellyseerr = {
