@@ -17,7 +17,8 @@ in
       sleuth.enable = true;
       comment.enable = true;
       otter.enable = true;
-    #   indent-blankline.enable = true;
+      web-devicons.enable = true;
+      indent-blankline.enable = true;
 
       git-worktree = {
         enable = true;

@@ -8,6 +8,9 @@ in
       settings = {
         highlight.enable = true;
         indent.enable = true;
+        highlight.disable = [
+          "vimdoc"
+        ];
       };
       # nixGrammars = false;
       # nixvimInjections = true;
@@ -21,9 +24,6 @@ in
       #     nodeDecremental = "<c-backspace>";
       #   };
       # };
-      disabledLanguages = [
-        "vimdoc"
-      ];
     };
   };
 }
