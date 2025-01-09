@@ -18,7 +18,7 @@ in
       comment.enable = true;
       otter.enable = true;
       web-devicons.enable = true;
-      indent-blankline.enable = true;
+      # indent-blankline.enable = true;
 
       git-worktree = {
         enable = true;
