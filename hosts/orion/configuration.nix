@@ -10,6 +10,7 @@
     users.emilia.enable = true;
     desktop.enable = true;
     gaming.enable = true;
+    docker.enable = true;
     # plasma.enable = true;
     # xserver.enable = true;
     udev.enable = true;
@@ -17,6 +18,7 @@
     netbird.enable = true;
     # impermanence.enable = true;
     openssh.enable = true;
+    vm.enable = true;
   };
 
   hardware.bluetooth = {
