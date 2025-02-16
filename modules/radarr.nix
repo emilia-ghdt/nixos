@@ -16,12 +16,8 @@ in
     siren.groups.arr.enable = true;
     siren.prowlarr.enable = true;
 
-    users.users.radarr.uid = mkForce 7878;
-    users.users.radarr.isSystemUser = true;
-
     services.radarr = {
       enable = true;
-      user = "radarr";
       group = "arr";
       openFirewall = cfg.openFirewall;
     };

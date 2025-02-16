@@ -29,6 +29,12 @@
     mozwire
   ];
 
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+    enableBashIntegration = true;
+  };
+
   nixpkgs = {
     # Allow "unfree" licenced packages
     config = {

@@ -26,16 +26,14 @@ in
 
   config = lib.mkIf cfg.enable (lib.mkMerge [
     {
-      # siren.docker.enable = true;
+      siren.groups.arr.enable = true;
 
       services.jellyfin = {
         enable = true;
         dataDir = cfg.dataDir;
         openFirewall = cfg.openFirewall;
+        group = "arr";
       };
-
-      users.users."jellyfin".uid = 4001;
-      users.groups."jellyfin".gid = 4001;
     }
 
     (lib.mkIf cfg.enableNginx {

@@ -15,7 +15,10 @@
     common.enable = true;
     users.emilia.enable = true;
     docker.enable = true;
-    portainer.enable = true;
+    portainer = {
+      enable = true;
+      containerVersion = "2.21.5";
+    };
     openssh.enable = true;
     jellyfin = {
       enable = true;
@@ -33,6 +36,16 @@
     radarr = {
       enable = true;
       openFirewall = true;
+    };
+    flaresolverr = {
+      enable = true;
+    };
+    qbittorrentvpn = {
+      enable = true;
+      enableSocks = true;
+      enablePrivoxy = true;
+      lanCidr = "172.23.107.0/24";
+      containerVersion = "5.0.3-1-01";
     };
     librespeed.enable = true;
     netbird.enable = true;

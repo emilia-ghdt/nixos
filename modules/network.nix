@@ -4,6 +4,7 @@ in
 {
   options.siren.networking = {
     ports = {
+      # TODO refactor into localsend.nix
       localsend = lib.mkEnableOption "allow localsend port";
     };
   };

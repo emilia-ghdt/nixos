@@ -12,11 +12,32 @@ in
       description = "domain name for portainer";
     };
 
+    containerVersion = lib.mkOption {
+      type = lib.types.str;
+      default = "2.21.5";
+      description = "portainer version";
+    };
   };
   
-  config =
-      # TODO
-    lib.mkIf cfg.enableNginx {
+  config = lib.mkIf cfg.enable (lib.mkMerge [
+    {
+      siren.docker.enable = true;
+
+      virtualisation.oci-containers.backend = "docker";
+      virtualisation.oci-containers.containers.portainer = {
+        image = "portainer/portainer-ce:${cfg.containerVersion}";
+        volumes = [
+          "/var/run/docker.sock:/var/run/docker.sock"
+          "portainer_data:/data"
+        ];
+        ports = [
+          "${if cfg.enableNginx then "127.0.0.1:" else ""}8000:8000"
+          "${if cfg.enableNginx then "127.0.0.1:" else ""}9443:9443"
+        ];
+      };
+    }
+
+    (lib.mkIf cfg.enableNginx {
       siren.nginx.enable = true;
 
       services.nginx.virtualHosts = {
@@ -31,7 +52,8 @@ in
           };
         };
       };
-    };
+    })
+  ]);
   
   
 }
