@@ -16,5 +16,12 @@ in
       enable = true;
       wayland.enable = true;
     };
+
+    programs = {
+      localsend = {
+        enable = true;
+        openFirewall = true;
+      };
+    };
   };
 }

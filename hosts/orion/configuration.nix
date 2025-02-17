@@ -26,12 +26,6 @@
     powerOnBoot = true; # powers up the default Bluetooth controller on boot
   };
 
-  siren.networking = {
-    ports = {
-      localsend = true;
-    };
-  };
-
   # Home-Manager
   siren.home-manager = {
     enable = true;

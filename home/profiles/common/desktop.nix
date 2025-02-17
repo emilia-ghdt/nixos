@@ -73,7 +73,6 @@
     ddcui # monitor settings
     vial # keyboard firmware settings
     screen-message
-    localsend # opensource airdrop
 
     # Network
     zap # proxy for pentesting
