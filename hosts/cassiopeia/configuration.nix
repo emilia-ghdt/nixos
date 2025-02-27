@@ -20,10 +20,6 @@
     nvidia.enable = true;
     fingerprint.enable = true;
     netbird.enable = true;
-    # kmonad = {
-    #   enable = true;
-    #   device = "/dev/input/by-id/usb-ASUSTeK_Computer_Inc._N-KEY_Device-if02-event-kbd";
-    # };
   };
 
   # Home-Manager

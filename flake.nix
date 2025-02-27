@@ -54,11 +54,6 @@
       flake = false;
     };
 
-    kmonad = {
-      url = "git+https://github.com/kmonad/kmonad?submodules=1&dir=nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     plugin-lazydev-nvim.url = "github:folke/lazydev.nvim";
     plugin-lazydev-nvim.flake = false;
   };
@@ -115,7 +110,6 @@
               inputs.sops-nix.nixosModules.sops
               inputs.disko.nixosModules.default
               inputs.impermanence.nixosModules.impermanence
-              inputs.kmonad.nixosModules.default
             ];
           };
         })
