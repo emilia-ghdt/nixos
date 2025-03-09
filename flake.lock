@@ -244,30 +244,6 @@
         "type": "github"
       }
     },
-    "kmonad": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "dir": "nix",
-        "lastModified": 1739482726,
-        "narHash": "sha256-YgHjlurvJEks9F269PzBOwgJyKeSouE12GuAiLWL0FA=",
-        "ref": "refs/heads/master",
-        "rev": "3801a782e3a01e01097ee98908cf31533fefc52b",
-        "revCount": 936,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/kmonad/kmonad?dir=nix"
-      },
-      "original": {
-        "dir": "nix",
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/kmonad/kmonad?dir=nix"
-      }
-    },
     "lua-ls-cc-tweaked": {
       "flake": false,
       "locked": {
@@ -433,7 +409,6 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
-        "kmonad": "kmonad",
         "lua-ls-cc-tweaked": "lua-ls-cc-tweaked",
         "nix-autobahn": "nix-autobahn",
         "nixpkgs": "nixpkgs",
