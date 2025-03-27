@@ -4,7 +4,7 @@
 
   siren.programs = {
     hyprland.monitors = [
-      "HDMI-A-1, 3840x2160@120, 0x0, 2"
+      "HDMI-A-1, 3840x2160@120, 0x0, 1"
     ];
   };
   

@@ -2,5 +2,6 @@
 {
   home.packages = with pkgs; [
     prismlauncher # modded minecraft launcher
+    minigalaxy # gog galaxy client
   ];
 }

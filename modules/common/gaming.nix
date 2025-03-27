@@ -9,5 +9,9 @@ in
       steam.enable = true;
       steam.gamescopeSession.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      lutris
+    ];
   };
 }

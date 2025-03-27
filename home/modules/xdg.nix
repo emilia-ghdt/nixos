@@ -1,8 +1,6 @@
 { lib, pkgs, system-config, ... }:
 with lib;
 {
-
-
   xdg = {
     mime.enable = true;
     # icons.enable = true;
@@ -11,10 +9,10 @@ with lib;
       enable = true;
       # wlr.enable = true;
       xdgOpenUsePortal = true;
-      configPackages = with pkgs; [ xdg-desktop-portal-wlr ]
+      configPackages = with pkgs; [ xdg-desktop-portal-gtk ]
         ++ lib.optionals (system-config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
         ++ lib.optionals (system-config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
-      extraPortals = with pkgs; [ xdg-desktop-portal-wlr ]
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ]
         ++ lib.optionals (system-config.siren.plasma.enable) [ kdePackages.xdg-desktop-portal-kde ]
         ++ lib.optionals (system-config.siren.hyprland.enable) [ xdg-desktop-portal-hyprland ];
     };

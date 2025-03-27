@@ -18,5 +18,11 @@ in
       pam.services.swaylock.text = "auth include login";
       pam.services.hyprlock = {};
     };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      xdgOpenUsePortal = true;
+    };
   };
 }

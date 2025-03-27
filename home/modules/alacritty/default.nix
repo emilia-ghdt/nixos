@@ -19,8 +19,8 @@ in
           decorations = "None";
           padding.x = 3;
           padding.y = 3;
-          opacity = 0.7;
-          blur = true;
+          opacity = 0.6;
+          # blur = true;
         };
 
         scrolling = {
