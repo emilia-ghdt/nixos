@@ -13,6 +13,9 @@ in
     # systemd.tmpfiles.rules = [
     #     "d /home/emilia/.ssh/control 0640 emilia users -"
     # ];
+    home.file.".ssh/control/.placeholder" = {
+      text = "";
+    };
 
     programs.ssh = {
       enable = true;
