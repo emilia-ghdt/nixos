@@ -50,8 +50,8 @@ in
         # # { mode = "n"; key = "<LEADER>e"; action = { __raw = "vim.diagnostics.open_float"; }; options.silent = true; }
 
         # # NVIM TREE
-        { mode = "n"; key = "<C-n>"; action = "<CMD>NvimTreeToggle<CR>"; options.silent = true; }
-        { mode = "n"; key = "<C-t>"; action = "<CMD>NvimTreeOpen<CR>"; options.silent = true; }
+        { mode = "n"; key = "<C-t>"; action = "<CMD>NvimTreeToggle<CR>"; options.silent = true; }
+        # { mode = "n"; key = "<C-t>"; action = "<CMD>NvimTreeOpen<CR>"; options.silent = true; }
 
         # # DAP
         # { mode = "n"; key = "<F5>"; action = { __raw = "require\"dap\".continue"; }; options.silent = true; }
@@ -85,7 +85,7 @@ in
         #   options = { silent = true; desc = "[/] Fuzzily search in current buffer"; };
         # }
         { mode = "n"; key = "<LEADER>ff"; action.__raw = "require('telescope.builtin').find_files"; options = { silent = true; desc = "[F]ind [F]iles"; }; }
-        # { mode = "n"; key = "<LEADER>sh"; action.__raw = "require('telescope.builtin').help_tags"; options = { silent = true; desc = "[S]earch [H]elp"; }; }
+        { mode = "n"; key = "<LEADER>sh"; action.__raw = "require('telescope.builtin').help_tags"; options = { silent = true; desc = "[S]earch [H]elp"; }; }
         # { mode = "n"; key = "<LEADER>sw"; action.__raw = "require('telescope.builtin').grep_string"; options = { silent = true; desc = "[S]earch current [W]ord"; }; }
         { mode = "n"; key = "<LEADER>sg"; action.__raw = "require('telescope.builtin').live_grep"; options = { silent = true; desc = "[S]earch by [G]rep"; }; }
         # { mode = "n"; key = "<LEADER>sd"; action.__raw = "require('telescope.builtin').diagnostics"; options = { silent = true; desc = "[S]earch [D]iagnostics"; }; }

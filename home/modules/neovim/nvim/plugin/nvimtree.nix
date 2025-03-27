@@ -6,8 +6,8 @@ in
   config = lib.mkIf cfg.enable {
 		programs.nixvim.plugins.nvim-tree = {
 			enable = true;
-			disableNetrw = true;
-			hijackNetrw = true;
+			disableNetrw = false;
+			hijackNetrw = false;
 		# 	diagnostics.enable = true;
 		# 	preferStartupRoot = false;
 		# 	syncRootWithCwd = true;

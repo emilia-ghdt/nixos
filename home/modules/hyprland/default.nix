@@ -258,6 +258,14 @@ in
           # Scroll through existing workspaces with mainMod + scroll
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
+
+          "$mainMod CTRL ALT, up, exec, hyprctl keyword monitor ${builtins.elemAt cfg.monitors 0},transform, 0"
+          "$mainMod CTRL ALT, up, exec, hyprctl keyword input:touchdevice:transform 0"
+          "$mainMod CTRL ALT, up, exec, hyprctl keyword input:tablet:transform 0"
+
+          "$mainMod CTRL ALT, down, exec, hyprctl keyword monitor ${builtins.elemAt cfg.monitors 0},transform, 2"
+          "$mainMod CTRL ALT, down, exec, hyprctl keyword input:touchdevice:transform 2"
+          "$mainMod CTRL ALT, down, exec, hyprctl keyword input:tablet:transform 2"
         ];
 
         bindm = [

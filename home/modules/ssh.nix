@@ -9,11 +9,25 @@ in
   };
 
   config = mkIf cfg.enable {
+    # TODO
+    # systemd.tmpfiles.rules = [
+    #     "d /home/emilia/.ssh/control 0640 emilia users -"
+    # ];
+
     programs.ssh = {
       enable = true;
       package = pkgs.openssh_hpn;
       
       matchBlocks = {
+        "*" = {
+          identitiesOnly = true;
+          extraOptions = {
+            "ControlMaster" = "auto";
+            "ControlPath" = "~/.ssh/control/ssh-%r@%h:%p";
+            "ControlPersist" = "300";
+          };
+        };
+
         "git.fachschaft.info" = {
           identityFile = "~/.ssh/fs_gitlab";
           user = "git";
@@ -83,6 +97,20 @@ in
         "teq" = {
           hostname = "tequila";
           proxyJump = "inform";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
+          port = 22;
+        };
+
+        "aquarius" = {
+          hostname = "aquarius.knniff.internal";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "emilia";
+          port = 22;
+        };
+
+        "orion" = {
+          hostname = "orion.knniff.internal";
           identityFile = "~/.ssh/emilia_ed25519";
           user = "emilia";
           port = 22;

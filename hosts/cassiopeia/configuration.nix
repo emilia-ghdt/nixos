@@ -4,9 +4,8 @@
     ./hardware-configuration.nix # Include the results of the hardware scan.
   ];
 
-  services.iperf3.enable = true;
-  services.iperf3.openFirewall = true;
-  
+  networking.extraHosts = "172.23.107.243 server";
+
   # Modules
   siren = {
     users.emilia.enable = true;
@@ -21,16 +20,7 @@
     fingerprint.enable = true;
     netbird.enable = true;
     virtualbox.enable = true;
-    # kmonad = {
-    #   enable = true;
-    #   device = "/dev/input/by-id/usb-ASUSTeK_Computer_Inc._N-KEY_Device-if02-event-kbd";
-    # };
-  };
-
-  siren.networking = {
-    ports = {
-      localsend = true;
-    };
+    librespeed.enable = true;
   };
 
   # Home-Manager
