@@ -8,14 +8,10 @@ in
     siren = {
       desktop.enable = true;
       # TODO: autocpufreq
+      bluetooth.enable = true;
       autocpufreq.enable = true;
     };
     
-    hardware.bluetooth = {
-      enable = true; # enables support for Bluetooth
-      powerOnBoot = true; # powers up the default Bluetooth controller on boot
-    };
-
     programs.light.enable = true;
   };
 }

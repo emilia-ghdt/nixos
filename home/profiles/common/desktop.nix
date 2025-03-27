@@ -59,7 +59,6 @@
 
     # Text
     artem # ASCII art
-    logseq # knowledge base
     obsidian # knowledge base
 
     # Documents

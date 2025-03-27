@@ -51,12 +51,11 @@
         # access overlay by using pkgs.stableRelease.<package>
         stableRelease = import flake-self.inputs.nixpkgs-stable {
           system = "${pkgs.system}";
-          config = { allowUnfree = true; };
+          config = {
+            allowUnfree = true; 
+          };
         };
       })
-    ];
-    config.permittedInsecurePackages = [
-      "electron-27.3.11"
     ];
   };
 }

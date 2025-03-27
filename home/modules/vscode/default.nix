@@ -112,6 +112,7 @@ in
           };
           "view.pdf.viewer"= "tab";
         };
+        "ltex.additionalRules.motherTongue" = "de-DE";
 
         # Markdown
         "[markdown]" = {

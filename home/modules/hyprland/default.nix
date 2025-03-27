@@ -16,6 +16,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.waybar.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
       
@@ -54,6 +55,7 @@ in
         "$brightness" = "${pkgs.brightnessctl}/bin/brightnessctl";
         "$audio" = "${pkgs.wireplumber}/bin/wpctl";
         "$media" = "${pkgs.playerctl}/bin/playerctl";
+        "$waybar" = "${config.programs.waybar.package}/bin/waybar";
 
         #################
         ### AUTOSTART ###
