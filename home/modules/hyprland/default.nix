@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 let cfg = config.siren.programs.hyprland;
 in
-{
+  {
   options.siren.programs.hyprland = {
     enable = lib.mkEnableOption "hyprland config";
     monitors = lib.mkOption {
@@ -19,7 +19,7 @@ in
     programs.waybar.enable = true;
     wayland.windowManager.hyprland = {
       enable = true;
-      
+
       settings = {
         # This is an example Hyprland config file.
         # Refer to the wiki for more information.
@@ -89,44 +89,44 @@ in
 
         # https://wiki.hyprland.org/Configuring/Variables/#general
         general = { 
-            gaps_in = 4;
-            gaps_out = 15;
+          gaps_in = 4;
+          gaps_out = 15;
 
-            border_size = 2;
+          border_size = 2;
 
-            # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-            "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-            "col.inactive_border" = "rgba(595959aa)";
+          # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
+          "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+          "col.inactive_border" = "rgba(595959aa)";
 
-            # Set to true enable resizing windows by clicking and dragging on borders and gaps
-            resize_on_border = true;
+          # Set to true enable resizing windows by clicking and dragging on borders and gaps
+          resize_on_border = true;
 
-            # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-            allow_tearing = false;
+          # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+          allow_tearing = false;
 
-            layout = "master";
+          layout = "master";
         };
 
         # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
         master = {
-            new_status = "slave";
-            orientation = "left";
-            smart_resizing = "false";
+          new_status = "slave";
+          orientation = "left";
+          smart_resizing = "false";
         };
 
         # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
         dwindle = {
-            pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-            preserve_split = true; # You probably want this
+          pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+          preserve_split = true; # You probably want this
         };
 
         # https://wiki.hyprland.org/Configuring/Variables/#decoration
         decoration = {
-            rounding = 8;
+          rounding = 8;
 
-            # Change transparency of focused and unfocused windows
-            active_opacity = 1.0;
-            inactive_opacity = 1.0;
+          # Change transparency of focused and unfocused windows
+          active_opacity = 1.0;
+          inactive_opacity = 1.0;
 
           shadow = {
             enabled = true;
@@ -147,25 +147,25 @@ in
 
         # https://wiki.hyprland.org/Configuring/Variables/#animations
         animations = {
-            enabled = true;
+          enabled = true;
 
-            # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
+          # Default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-            bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-            animation = [
-              "windows, 1, 7, myBezier"
-              "windowsOut, 1, 7, default, popin 80%"
-              "border, 1, 10, default"
-              "borderangle, 1, 8, default"
-              "fade, 1, 7, default"
-              "workspaces, 1, 6, default"
-            ];
+          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+          animation = [
+            "windows, 1, 7, myBezier"
+            "windowsOut, 1, 7, default, popin 80%"
+            "border, 1, 10, default"
+            "borderangle, 1, 8, default"
+            "fade, 1, 7, default"
+            "workspaces, 1, 6, default"
+          ];
         };
 
         # https://wiki.hyprland.org/Configuring/Variables/#misc
         misc = { 
-            force_default_wallpaper = -1; # Set to 0 or 1 to disable the anime mascot wallpapers
-            disable_hyprland_logo = false; # If true disables the random hyprland logo / anime girl background. :(
+          force_default_wallpaper = -1; # Set to 0 or 1 to disable the anime mascot wallpapers
+          disable_hyprland_logo = false; # If true disables the random hyprland logo / anime girl background. :(
         };
 
 
@@ -175,25 +175,26 @@ in
 
         # https://wiki.hyprland.org/Configuring/Variables/#input
         input = {
-            kb_layout = "us";
-            kb_variant = "altgr-intl";
-            kb_model = "";
-            kb_options = "";
-            kb_rules = "";
+          kb_layout = "us";
+          kb_variant = "altgr-intl";
+          kb_model = "";
+          kb_options = "";
+          kb_rules = "";
 
-            follow_mouse = 1;
+          follow_mouse = 1;
 
-            sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
-            accel_profile = "flat";
+          sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+          accel_profile = "flat";
 
-            touchpad = {
-                natural_scroll = false;
-            };
+          touchpad = {
+            natural_scroll = false;
+          };
+          disable_while_typing=false;
         };
 
         # https://wiki.hyprland.org/Configuring/Variables/#gestures
         gestures = {
-            workspace_swipe = false;
+          workspace_swipe = false;
         };
 
         ####################
