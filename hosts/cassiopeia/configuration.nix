@@ -21,6 +21,7 @@
     netbird.enable = true;
     virtualbox.enable = true;
     librespeed.enable = true;
+    ytblock.enable = true;
   };
 
   # Home-Manager
