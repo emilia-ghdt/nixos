@@ -26,6 +26,8 @@
       enableNginx = true;
     };
     domain = "nyriad.de";
+    acme.enable = true;
+    netbird.enable = true;
   };
 
   siren.home-manager = {

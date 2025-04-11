@@ -26,6 +26,7 @@ in
         };
         group = "nginx";
       };
+      validMinDays = 30;
     };
 
     sops.secrets = let 
