@@ -6,8 +6,13 @@ in
 
   config = lib.mkIf cfg.enable {
     programs = {
-      steam.enable = true;
-      steam.gamescopeSession.enable = true;
+      steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+        extraPackages = with pkgs; [
+          gamescope-wsi
+        ];
+      };
     };
 
     environment.systemPackages = with pkgs; [

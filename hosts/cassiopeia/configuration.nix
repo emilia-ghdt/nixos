@@ -12,7 +12,6 @@
     convertible.enable = true;
     gaming.enable = true;
     # plasma.enable = true;
-    # xserver.enable = true;
     udev.enable = true;
     nvidia.enable = false;
     fingerprint.enable = true;

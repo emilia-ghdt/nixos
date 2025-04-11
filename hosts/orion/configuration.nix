@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
@@ -11,8 +11,7 @@
     desktop.enable = true;
     gaming.enable = true;
     docker.enable = true;
-    # plasma.enable = true;
-    # xserver.enable = true;
+    plasma.enable = true;
     udev.enable = true;
     nvidia.enable = true;
     netbird.enable = true;
@@ -21,6 +20,8 @@
     vm.enable = true;
     ytblock.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [ vulkan-hdr-layer-kwin6 ];
 
   hardware.bluetooth = {
     enable = true; # enables support for Bluetooth
