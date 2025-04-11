@@ -19,6 +19,7 @@
     # impermanence.enable = true;
     openssh.enable = true;
     vm.enable = true;
+    ytblock.enable = true;
   };
 
   hardware.bluetooth = {
