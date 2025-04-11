@@ -56,6 +56,7 @@ in
         "$audio" = "${pkgs.wireplumber}/bin/wpctl";
         "$media" = "${pkgs.playerctl}/bin/playerctl";
         "$waybar" = "${config.programs.waybar.package}/bin/waybar";
+        "$bluetooth" = "${pkgs.blueman}/bin/blueman-manager";
 
         #################
         ### AUTOSTART ###
@@ -188,13 +189,22 @@ in
 
           touchpad = {
             natural_scroll = false;
+            disable_while_typing=false;
           };
-          disable_while_typing=false;
         };
 
         # https://wiki.hyprland.org/Configuring/Variables/#gestures
         gestures = {
           workspace_swipe = false;
+        };
+
+        #################
+        ### ECOSYSTEM ###
+        #################
+
+        ecosystem = {
+          no_update_news = true;
+          no_donation_nag = true;
         };
 
         ####################
@@ -216,6 +226,7 @@ in
           "$mainMod, P, pseudo, # dwindle"
           "$mainMod, J, togglesplit, # dwindle"
           "$mainMod, L, exec, $locker"
+          "$mainMod, B, exec, $bluetooth"
 
           # Move focus with mainMod + arrow keys
           "$mainMod, left, movefocus, l"
