@@ -7,9 +7,7 @@ in
   config = lib.mkIf cfg.enable {
     siren = {
       desktop.enable = true;
-      # TODO: autocpufreq
       bluetooth.enable = true;
-      autocpufreq.enable = true;
     };
     
     programs.light.enable = true;

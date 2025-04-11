@@ -14,9 +14,7 @@
     # plasma.enable = true;
     # xserver.enable = true;
     udev.enable = true;
-    openshut.enable = true;
-    openshut.keyboardInputPath = "/dev/input/event8";
-    nvidia.enable = true;
+    nvidia.enable = false;
     fingerprint.enable = true;
     netbird.enable = true;
     virtualbox.enable = true;
