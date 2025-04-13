@@ -28,6 +28,11 @@
     domain = "nyriad.de";
     acme.enable = true;
     netbird.enable = true;
+    headscale = {
+      enable = true;
+      # enableNginx = true;
+    };
+    tailscale.enable = true;
   };
 
   siren.home-manager = {

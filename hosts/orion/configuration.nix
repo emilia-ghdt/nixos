@@ -19,6 +19,7 @@
     openssh.enable = true;
     vm.enable = true;
     ytblock.enable = true;
+    tailscale.enable = true;
   };
 
   environment.systemPackages = with pkgs; [ vulkan-hdr-layer-kwin6 ];

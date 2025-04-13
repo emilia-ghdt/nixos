@@ -28,7 +28,7 @@ in
         serverUrl = "https://${cfg.domain}";
         settings = {
           dns = {
-            baseDomain = "nyriad.internal";
+            base_domain = "nyriad.internal";
           };
         };
       };
