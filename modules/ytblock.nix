@@ -1,5 +1,5 @@
 { lib, pkgs, config, ... }:
-let cfg = config.siren.netbird;
+let cfg = config.siren.ytblock;
 in
 {
   options.siren.ytblock = {
