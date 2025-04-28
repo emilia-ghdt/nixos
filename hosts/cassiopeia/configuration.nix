@@ -29,6 +29,13 @@
     stateVersion = "23.11"; # Please read the comment before changing.
   };
 
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
+
+  services.upower.enable = true;
+
   # services.openvpn.servers = {
   #   infoVPN  = { config = '' config /home/emilia/Documents/Uni/openvpn_grosshardtj0_udp.ovpn ''; };
   # };
