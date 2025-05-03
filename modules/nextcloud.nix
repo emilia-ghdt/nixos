@@ -13,12 +13,13 @@ in
       hostName = "aquarius.knniff.internal";
       enableImagemagick = false;
       notify_push.enable = true;
-      datadir = "/vault/nextcloud";
-      config.adminpassFile = "/run/secrets/netcup/admin-pass";
+      datadir = "/data/nextcloud";
+      config.adminpassFile = "/run/secrets/nextcloud/admin-pass";
+      config.dbtype = "sqlite";
     };
 
     sops.secrets = {
-      "netcup/admin-pass" = {
+      "nextcloud/admin-pass" = {
         owner = "nextcloud";
       };
     };

@@ -50,6 +50,7 @@
     home-assistant.enable = true;
     librespeed.enable = true;
     netbird.enable = true;
+    nextcloud.enable = true;
   };
 
   siren.home-manager = {

@@ -33,7 +33,6 @@
       # enableNginx = true;
     };
     tailscale.enable = true;
-    nextcloud.enable = true;
   };
 
   siren.home-manager = {
