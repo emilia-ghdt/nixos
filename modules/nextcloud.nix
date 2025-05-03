@@ -9,6 +9,7 @@ in
   config = lib.mkIf cfg.enable {
     services.nextcloud = {
       enable = true;
+      package = pkgs.nextcloud31;
       # https = true;
       hostName = "aquarius.knniff.internal";
       enableImagemagick = false;
