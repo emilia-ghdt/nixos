@@ -13,11 +13,10 @@
     gaming.enable = true;
     # plasma.enable = true;
     udev.enable = true;
-    nvidia.enable = false;
+    nvidia.enable = true;
     fingerprint.enable = true;
     netbird.enable = true;
     virtualbox.enable = true;
-    librespeed.enable = true;
     ytblock.enable = true;
   };
 
