@@ -25,7 +25,7 @@ in
 
     services.jellyseerr = {
       enable = true;
-      package = pkgs.stableRelease.jellyseerr;
+      package = pkgs.jellyseerr;
       port = cfg.port;
       openFirewall = cfg.openFirewall;
     };
