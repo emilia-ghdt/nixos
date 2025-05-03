@@ -14,7 +14,7 @@ in
 
     containerVersion = lib.mkOption {
       type = lib.types.str;
-      default = "2.21.5";
+      default = "latest";
       description = "portainer version";
     };
   };

@@ -24,6 +24,7 @@
     portainer = {
       enable = true;
       enableNginx = true;
+      containerVersion = "2.27.5";
     };
     domain = "nyriad.de";
     acme.enable = true;

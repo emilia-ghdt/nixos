@@ -17,7 +17,7 @@
     docker.enable = true;
     portainer = {
       enable = true;
-      containerVersion = "2.21.5";
+      containerVersion = "2.27.5";
     };
     openssh.enable = true;
     jellyfin = {
@@ -64,7 +64,7 @@
     stableRelease.vaapiIntel = pkgs.stableRelease.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs.stableRelease; [
       intel-media-driver
