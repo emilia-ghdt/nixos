@@ -50,7 +50,7 @@ in
         # Set programs that you use
         "$terminal" = cfg.terminal;
         "$fileManager" = "${pkgs.yazi}/bin/yazi";
-        "$locker" = "${pkgs.swaylock}/bin/swaylock";
+        "$locker" = "${pkgs.swaylock}/bin/swaylock --color 000000";
         "$menu" = "${pkgs.wofi}/bin/wofi --show drun";
         "$brightness" = "${pkgs.brightnessctl}/bin/brightnessctl";
         "$audio" = "${pkgs.wireplumber}/bin/wpctl";
