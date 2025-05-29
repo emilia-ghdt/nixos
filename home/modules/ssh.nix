@@ -49,13 +49,6 @@ in
           port = 22;
         };
 
-        "contabo" = {
-          hostname = "ptyonic.dev";
-          identityFile = "~/.ssh/emilia_ed25519";
-          user = "root";
-          port = 21449;
-        };
-
         "git.cs.uni-bonn.de" = {
           identityFile = "~/.ssh/emilia_ed25519";
           user = "git";
@@ -82,6 +75,13 @@ in
           port = 22;
         };
 
+        "pool-*" = {
+          proxyJump = "loginstud";
+          identityFile = "~/.ssh/emilia_ed25519";
+          user = "grosshardtj0";
+          port = 22;
+        };
+        
         "inform" = {
           hostname = "inform.informatik.uni-bonn.de";
           identityFile = "~/.ssh/emilia_ed25519";
