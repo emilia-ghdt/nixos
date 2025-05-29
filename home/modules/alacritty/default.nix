@@ -19,12 +19,12 @@ in
           decorations = "None";
           padding.x = 3;
           padding.y = 3;
-          opacity = 0.6;
+          opacity = 0.8;
           # blur = true;
         };
 
         scrolling = {
-          history = 100000;
+          history = 1000;
         };
 
         font = {
