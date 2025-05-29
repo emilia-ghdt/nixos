@@ -27,10 +27,15 @@
     # Network
     wireguard-tools
     mozwire
+
+    # Files
+    unzip
+    zip
   ];
 
   programs.nix-index = {
     enable = true;
+    # package = pkgs.nix-index-with-db;
     enableFishIntegration = true;
     enableBashIntegration = true;
   };

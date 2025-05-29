@@ -54,6 +54,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lua-ls-cc-tweaked = {
       url = "github:nvim-computercraft/lua-ls-cc-tweaked";
       flake = false;
@@ -116,6 +121,7 @@
               inputs.disko.nixosModules.default
               inputs.impermanence.nixosModules.impermanence
               inputs.lix-module.nixosModules.default
+              inputs.nix-index-database.nixosModules.nix-index
             ];
           };
         })
