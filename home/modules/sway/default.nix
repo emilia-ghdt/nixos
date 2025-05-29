@@ -19,7 +19,7 @@ in
         input = {
           "type:keyboard" = {
             xkb_layout = "us";
-            xkb_variant = "intl";
+            xkb_variant = "altgr-intl";
             xkb_numlock = "enabled";
           };
           "type:touchpad" = {
