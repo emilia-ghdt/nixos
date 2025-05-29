@@ -4,7 +4,7 @@
 
   siren.programs = {
     alacritty.enable = true;
-    hyprland.enable = true;
+    # hyprland.enable = true;
     sway.enable = true;
     # rust.enable = true;
     vscode.enable = true;
@@ -65,6 +65,7 @@
     libreoffice
     pandoc # document conversion
     texliveFull # LaTeX
+    pdfpc # pdf presenter
 
     # Utils
     popsicle # USB flasher
