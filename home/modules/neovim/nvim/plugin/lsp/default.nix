@@ -16,15 +16,15 @@ in
       servers = {
         clangd = {
           enable = true;
-    #       settings.arguments = [
+          settings.arguments = [
     #         "--clang-tidy"
     #         "--background-index"
     #         "--completion-style=detailed"
-    #         "--cross-file-rename"
+            "--cross-file-rename"
     #         "--header-insertion=iwyu"
     #         "--all-scopes-completion"
     #         "--fallback-style=file:${config.home.homeDirectory}/.clang-format"
-    #       ];
+          ];
         };
         java_language_server = {
           enable = true;
@@ -34,7 +34,6 @@ in
     #     emmet-ls.enable = true;
     #     tsserver.enable = true;
     #     cssls.enable = true;
-    #     pyright.enable = true;
         nixd.enable = true;
         lua_ls = {
           enable = true;
