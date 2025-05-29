@@ -16,6 +16,7 @@
     nvidia.enable = true;
     fingerprint.enable = true;
     netbird.enable = true;
+    openssh.enable = true;
     virtualbox.enable = true;
     ytblock.enable = true;
   };
