@@ -4,6 +4,8 @@
 
   siren.programs = {
     alacritty.enable = true;
+    kitty.enable = true;
+    kitty.setDefault = true;
     # hyprland.enable = true;
     sway.enable = true;
     # rust.enable = true;
@@ -44,7 +46,7 @@
     spotify
 
     # PCB
-    kicad
+    # kicad
 
     # Development
     arduino-ide
@@ -73,6 +75,7 @@
     ddcui # monitor settings
     vial # keyboard firmware settings
     screen-message
+    gnome-network-displays
 
     # Network
     zap # proxy for pentesting
