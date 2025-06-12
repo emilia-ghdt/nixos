@@ -12,18 +12,17 @@ with lib; {
 
     portal = {
       enable = true;
-      # wlr.enable = true;
       xdgOpenUsePortal = true;
       configPackages = with pkgs;
-        [xdg-desktop-portal-gtk]
-        ++ lib.optionals (system-config.siren.plasma.enable) [kdePackages.xdg-desktop-portal-kde]
+        lib.optionals (system-config.siren.hyprland.enable) [xdg-desktop-portal-hyprland]
+        ++ [xdg-desktop-portal-gtk]
         ++ lib.optionals (config.siren.programs.sway.enable) [xdg-desktop-portal-wlr]
-        ++ lib.optionals (system-config.siren.hyprland.enable) [xdg-desktop-portal-hyprland];
+        ++ lib.optionals (system-config.siren.plasma.enable) [kdePackages.xdg-desktop-portal-kde];
       extraPortals = with pkgs;
-        [xdg-desktop-portal-gtk]
-        ++ lib.optionals (system-config.siren.plasma.enable) [kdePackages.xdg-desktop-portal-kde]
+        lib.optionals (system-config.siren.hyprland.enable) [xdg-desktop-portal-hyprland]
+        ++ [xdg-desktop-portal-gtk]
         ++ lib.optionals (config.siren.programs.sway.enable) [xdg-desktop-portal-wlr]
-        ++ lib.optionals (system-config.siren.hyprland.enable) [xdg-desktop-portal-hyprland];
+        ++ lib.optionals (system-config.siren.plasma.enable) [kdePackages.xdg-desktop-portal-kde];
     };
 
     userDirs = {

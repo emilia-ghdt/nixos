@@ -26,6 +26,11 @@ in
             click_method = "clickfinger";
             tap = "enabled";
           };   
+          keybindings = lib.mkOptionDefault {
+            # "${modifier}+Return" = "exec ${pkgs.foot}/bin/foot";
+            # "${modifier}+Shift+q" = "kill";
+            # "${modifier}+d" = "exec ${pkgs.dmenu}/bin/dmenu_path | ${pkgs.dmenu}/bin/dmenu | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+          };
         };
       };
     };
