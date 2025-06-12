@@ -23,6 +23,7 @@ in
         enable = true;
         openFirewall = true;
       };
+      partition-manager.enable = true;
     };
   };
 }

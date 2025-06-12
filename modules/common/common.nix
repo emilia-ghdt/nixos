@@ -26,6 +26,7 @@ in
       eza
       p7zip
       speedtest-rs
+      restic
     ] ++ [ flake-self.inputs.nix-autobahn ];
 
     # Shells

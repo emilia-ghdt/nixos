@@ -64,13 +64,15 @@
       flake = false;
     };
 
-    plugin-lazydev-nvim.url = "github:folke/lazydev.nvim";
-    plugin-lazydev-nvim.flake = false;
+    plugin-lazydev-nvim = {
+      url = "github:folke/lazydev.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-    # Helper function to get regular files in a directory
+      # Helper function to get regular files in a directory
       filesIn = dirPath: 
         let
           dirContents = builtins.readDir dirPath;
@@ -147,6 +149,5 @@
           flake-self = self;
         };
       });
-
     };
 }
