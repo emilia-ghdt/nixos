@@ -47,6 +47,7 @@ in
         }
         (./profiles + "/${cfg.profile}.nix")
         flake-self.inputs.nixvim.homeManagerModules.nixvim
+        flake-self.inputs.nix-index-database.hmModules.nix-index
       ];
     };
   };

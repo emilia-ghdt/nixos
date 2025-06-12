@@ -35,7 +35,6 @@
 
   programs.nix-index = {
     enable = true;
-    # package = pkgs.nix-index-with-db;
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
