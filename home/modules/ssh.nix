@@ -98,7 +98,7 @@ in
         };
         
         "teq" = {
-          hostname = "tequila";
+          hostname = "tequila.informatik.uni-bonn.de";
           proxyJump = "inform";
           identityFile = "~/.ssh/emilia_ed25519";
           user = "emilia";
