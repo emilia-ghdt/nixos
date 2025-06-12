@@ -17,8 +17,8 @@
     fingerprint.enable = true;
     netbird.enable = true;
     openssh.enable = true;
-    virtualbox.enable = true;
-    ytblock.enable = true;
+    # virtualbox.enable = true;
+    # ytblock.enable = true;
   };
 
   # Home-Manager
