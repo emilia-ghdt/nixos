@@ -31,24 +31,15 @@
     [ { device = "/dev/disk/by-uuid/4086cd95-4974-40e6-a3b6-ea054b4f2f03"; }
     ];
 
-    hardware.nvidia.prime = {
-      sync.enable = true;
+  hardware.nvidia.prime = {
+    offload.enable = lib.mkForce true;
+    offload.enableOffloadCmd = lib.mkForce true;
 
-      # Make sure to use the correct Bus ID values for your system!
-      nvidiaBusId = "PCI:1:0:0";
-      amdgpuBusId = "PCI:8:0:0";
-    };
+    # Make sure to use the correct Bus ID values for your system!
+    nvidiaBusId = "PCI:1:0:0";
+    amdgpuBusId = "PCI:8:0:0";
+  };
 
-    specialisation =  {
-      on-the-go.configuration = {
-        system.nixos.tags = [ "on-the-go" ];
-        hardware.nvidia = {
-          prime.offload.enable = lib.mkForce true;
-          prime.offload.enableOffloadCmd = lib.mkForce true;
-          prime.sync.enable = lib.mkForce false;
-        };
-      };
-    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
