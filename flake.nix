@@ -21,11 +21,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     impermanence = {
       url = "github:nix-community/impermanence";
     };
@@ -67,6 +62,16 @@
     plugin-lazydev-nvim = {
       url = "github:folke/lazydev.nvim";
       flake = false;
+    };
+
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -122,8 +127,9 @@
               inputs.sops-nix.nixosModules.sops
               inputs.disko.nixosModules.default
               inputs.impermanence.nixosModules.impermanence
-              inputs.lix-module.nixosModules.default
               inputs.nix-index-database.nixosModules.nix-index
+              inputs.stylix.nixosModules.stylix
+              inputs.catppuccin.nixosModules.catppuccin
             ];
           };
         })

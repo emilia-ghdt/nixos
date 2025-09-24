@@ -33,6 +33,7 @@ in
     programs = {
       zsh.enable = true;
       fish.enable = true;
+      fish.vendor.completions.enable = true;
       nix-index-database.comma.enable = true;
     };
 
@@ -54,6 +55,13 @@ in
           system = "${pkgs.system}";
           config = { allowUnfree = true; };
         };
+
+        inherit (self.lixPackageSets.stable)
+          nixpkgs-review
+          nix-direnv
+          nix-eval-jobs
+          nix-fast-build
+          colmena;
       })
     ];
 
@@ -82,6 +90,8 @@ in
       # and root e.g. `nix-channel --remove nixos`. `nix-channel
       # --list` should be empty for all users afterwards
       nixPath = [ "nixpkgs=${flake-self.inputs.nixpkgs}" ];
+
+      package = pkgs.lixPackageSets.stable.lix;
     };
   };
 }
